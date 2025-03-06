@@ -7,6 +7,7 @@ import lombok.RequiredArgsConstructor;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.data.domain.Page;
+import org.springframework.data.domain.PageRequest;
 import org.springframework.data.domain.Pageable;
 import org.springframework.data.web.PageableDefault;
 import org.springframework.http.ResponseEntity;
@@ -28,13 +29,8 @@ public class UserController {
     @PreAuthorize("hasAnyRole('SUPER','ADMIN','MANEGER')")
     @GetMapping
     public ResponseEntity<?> getAllActiveUsers(
-            @RequestParam(name = "roleName", required = false) String roleName,
-            @PageableDefault(size = 10, sort = "createdDate") Pageable pageable) {
-
-        log.info("User {} requested getAllUsers with roleName={} and pageable={}",
-                SecurityContextHolder.getContext().getAuthentication().getName(), roleName, pageable);
-
-        Page<UserResponse> users = userService.getAllUsers(roleName, pageable, false);
+            @RequestParam(name = "roleName", required = false) String roleName) {
+        Page<UserResponse> users = userService.getAllUsers(roleName, PageRequest.of(10,10),true);
         return ResponseEntity.ok(users);
     }
     @PreAuthorize("hasAnyRole('SUPER','ADMIN','MANEGER')")

@@ -6,6 +6,7 @@ import com.example.academy.core.domain.mapper.UserMapper;
 import com.example.academy.core.domain.request.user.LoginRequest;
 import com.example.academy.core.domain.request.user.UserRequest;
 import com.example.academy.core.domain.response.user.UserResponse;
+import com.example.academy.core.heper.BaseHelper;
 import com.example.academy.modules.user.entity.UserEntity;
 import com.example.academy.modules.user.repository.UserRepository;
 import jakarta.transaction.Transactional;
@@ -32,16 +33,17 @@ public class AuthService {
 
     @Transactional
     public UserResponse save(UserRequest request) {
+
         UserEntity user = UserEntity.builder()
                 .username(request.getUsername())
                 .fullName(request.getFullName())
                 .password(passwordEncoder.encode(request.getPassword()))
                 .email(request.getEmail())
                 .number(request.getNumber())
-                .address(request.getAddress())
-                .dateOfBirth(LocalDate.parse(request.getDateOfBirth()))
-
                 .build();
+        BaseHelper.updateIfPresent(request.getAddress(),user::setAddress);
+        BaseHelper.updateIfPresent(request.getDateOfBirth(),user::setDateOfBirth);
+
         userRepository.save(user);
         return UserMapper.entityToResponse(user);
     }

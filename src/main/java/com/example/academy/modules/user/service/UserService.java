@@ -3,9 +3,11 @@ package com.example.academy.modules.user.service;
 import com.example.academy.core.domain.mapper.UserMapper;
 import com.example.academy.core.domain.request.user.UserUpdateRequest;
 import com.example.academy.core.domain.response.user.UserResponse;
+import com.example.academy.core.domain.specific.UserSpecifications;
 import com.example.academy.core.excaption.ResourceNotFoundException;
 import com.example.academy.core.heper.BaseHelper;
 import com.example.academy.modules.user.entity.UserEntity;
+import com.example.academy.modules.user.enums.UserRole;
 import com.example.academy.modules.user.repository.UserRepository;
 import com.example.academy.modules.user.util.PasswordResetToken;
 import com.example.academy.modules.user.util.PasswordResetTokenRepository;
@@ -14,8 +16,11 @@ import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import org.springframework.data.domain.Example;
 import org.springframework.data.domain.Page;
+import org.springframework.data.domain.PageRequest;
 import org.springframework.data.domain.Pageable;
+import org.springframework.data.jpa.domain.Specification;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
@@ -42,8 +47,10 @@ public class UserService {
 
         BaseHelper.updateIfPresent(userUpdateRequest.getFullName(), existingUser::setFullName);
         BaseHelper.updateIfPresent(userUpdateRequest.getUsername(), existingUser::setUsername);
-        BaseHelper.updateIfPresent(userUpdateRequest.getPassword(),
-                password -> existingUser.setPassword(passwordEncoder.encode(password)));
+        BaseHelper.updateIfPresent(
+                passwordEncoder.encode(userUpdateRequest.getPassword()),
+                existingUser::setPassword
+        );
         BaseHelper.updateIfPresent(userUpdateRequest.getEmail(), existingUser::setEmail);
         BaseHelper.updateIfPresent(userUpdateRequest.getNumber(), existingUser::setNumber);
 
@@ -71,15 +78,16 @@ public class UserService {
 
 
     public Page<UserResponse> getAllUsers(String roleName, Pageable pageable, boolean active) {
-        /*Specification<UserEntity> spec = Specification.where(UserSpecifications.hasRoleName(roleName))
-                .and((root, query, criteriaBuilder) ->
-                        criteriaBuilder.equal(root.get("isDeleted"), false) // Deleted emasligi uchun.
-                );
+        Specification<UserEntity> spec = Specification.where(UserSpecifications.isActive(active));
 
-        Page<UserEntity> users = userRepository.findAll(spec, pageable);*/
-        Page<UserEntity> users = userRepository.findAll(pageable);
+        if (roleName != null && !roleName.isBlank()) {
+            spec = spec.and(UserSpecifications.hasRoleName(UserRole.valueOf(roleName)));
+        }
+
+        Page<UserEntity> users = userRepository.findAll(spec, pageable);
         return users.map(UserMapper::entityToResponse);
     }
+
 
 
 
