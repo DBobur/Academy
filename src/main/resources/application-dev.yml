@@ -1,0 +1,37 @@
+
+
+jwt:
+  secret: "753778214125442A472D4B6150645367566B59703373367639792F423F452848"
+  expiration: 36000000 # 10 soat millisekundlarda
+
+spring:
+  application:
+    name: Academy
+
+  datasource:
+    url: jdbc:postgresql://localhost:5432/academy
+    username: postgres
+    password: 1483
+    driver-class-name: org.postgresql.Driver
+
+  jpa:
+    properties:
+      hibernate:
+        dialect: org.hibernate.dialect.PostgreSQLDialect
+    hibernate:
+      ddl-auto: update
+
+  mail:
+    host: smtp.gmail.com
+    port: 587
+    username: davlatboyev2024@gmail.com
+    password: zkeozetmaezxhonj
+    properties:
+      mail.smtp.auth: true
+      mail.smtp.starttls.enable: true
+  banner:
+    location: dev-banner
+
+server:
+  port: 8081
+

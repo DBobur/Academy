@@ -41,6 +41,6 @@ public class UserEntity extends BaseEntity {
     private boolean isDeleted = false;
 
     @Enumerated(EnumType.STRING)
-    private UserRole role = UserRole.USER;
+    private UserRole role;
 }
 

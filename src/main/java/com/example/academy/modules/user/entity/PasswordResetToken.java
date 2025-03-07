@@ -1,4 +1,4 @@
-package com.example.academy.modules.user.util;
+package com.example.academy.modules.user.entity;
 
 import com.example.academy.core.common.BaseEntity;
 import jakarta.persistence.Column;

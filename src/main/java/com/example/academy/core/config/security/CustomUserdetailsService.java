@@ -1,4 +1,4 @@
-package com.example.academy.core.config;
+package com.example.academy.core.config.security;
 
 import com.example.academy.modules.user.entity.UserEntity;
 import com.example.academy.modules.user.repository.UserRepository;

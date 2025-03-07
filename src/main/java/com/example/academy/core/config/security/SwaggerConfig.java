@@ -1,4 +1,4 @@
-package com.example.academy.core.config;
+package com.example.academy.core.config.security;
 
 import io.swagger.v3.oas.models.Components;
 import io.swagger.v3.oas.models.OpenAPI;

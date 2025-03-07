@@ -1,4 +1,4 @@
-package com.example.academy.core.config;
+package com.example.academy.core.config.security;
 
 import io.jsonwebtoken.Claims;
 import io.jsonwebtoken.ExpiredJwtException;

@@ -5,20 +5,17 @@ import com.example.academy.core.domain.request.user.UserUpdateRequest;
 import com.example.academy.core.domain.response.user.UserResponse;
 import com.example.academy.core.domain.specific.UserSpecifications;
 import com.example.academy.core.excaption.ResourceNotFoundException;
-import com.example.academy.core.heper.BaseHelper;
+import com.example.academy.core.utils.BaseHelper;
 import com.example.academy.modules.user.entity.UserEntity;
 import com.example.academy.modules.user.enums.UserRole;
 import com.example.academy.modules.user.repository.UserRepository;
-import com.example.academy.modules.user.util.PasswordResetToken;
-import com.example.academy.modules.user.util.PasswordResetTokenRepository;
+import com.example.academy.modules.user.entity.PasswordResetToken;
+import com.example.academy.modules.user.repository.PasswordResetTokenRepository;
 import jakarta.transaction.Transactional;
-import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-import org.springframework.data.domain.Example;
 import org.springframework.data.domain.Page;
-import org.springframework.data.domain.PageRequest;
 import org.springframework.data.domain.Pageable;
 import org.springframework.data.jpa.domain.Specification;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
@@ -26,9 +23,7 @@ import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 
 import java.time.LocalDateTime;
-import java.util.Set;
 import java.util.UUID;
-import java.util.stream.Collectors;
 
 @Service
 @RequiredArgsConstructor

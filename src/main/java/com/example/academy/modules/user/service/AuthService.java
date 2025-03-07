@@ -1,25 +1,21 @@
 package com.example.academy.modules.user.service;
 
-import com.example.academy.core.config.CustomUserdetailsService;
-import com.example.academy.core.config.JwtTokenUtil;
+import com.example.academy.core.config.security.CustomUserdetailsService;
+import com.example.academy.core.config.security.JwtTokenUtil;
 import com.example.academy.core.domain.mapper.UserMapper;
 import com.example.academy.core.domain.request.user.LoginRequest;
 import com.example.academy.core.domain.request.user.UserRequest;
 import com.example.academy.core.domain.response.user.UserResponse;
-import com.example.academy.core.heper.BaseHelper;
+import com.example.academy.core.utils.BaseHelper;
 import com.example.academy.modules.user.entity.UserEntity;
 import com.example.academy.modules.user.repository.UserRepository;
 import jakarta.transaction.Transactional;
 import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
 import org.springframework.security.authentication.BadCredentialsException;
-import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
-
-import java.time.LocalDate;
-import java.util.Optional;
 
 @Service
 @RequiredArgsConstructor

@@ -1,5 +1,6 @@
-package com.example.academy.core.config;
+package com.example.academy.core.config.security;
 
+import com.example.academy.core.config.AppErrorResponse;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import jakarta.servlet.ServletOutputStream;
 import jakarta.servlet.http.HttpServletResponse;
