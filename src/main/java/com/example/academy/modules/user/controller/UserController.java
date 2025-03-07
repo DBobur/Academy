@@ -35,7 +35,7 @@ public class UserController {
     }
     @PreAuthorize("hasAnyRole('SUPER','ADMIN','MANEGER')")
     @GetMapping("/{id}")
-    public ResponseEntity<UserResponse> getUserById(@PathVariable Long id) {
+    public ResponseEntity<?> getUserById(@PathVariable Long id) {
         UserResponse user = userService.getUserById(id);
         return ResponseEntity.ok(user);
     }
@@ -61,14 +61,14 @@ public class UserController {
     // Restore User Methods for ADMIN and SUPER
     @PreAuthorize("hasAnyRole('SUPER','ADMIN','MANEGER')")
     @PutMapping("/{id}/restore")
-    public ResponseEntity<String> restoreUser(@PathVariable Long id) {
+    public ResponseEntity<?> restoreUser(@PathVariable Long id) {
         userService.restoreUser(id);
         return ResponseEntity.ok("User restored successfully");
     }
 
     @PreAuthorize("hasAnyRole('SUPER','ADMIN','MANEGER')")
     @DeleteMapping
-    public ResponseEntity<String> deleteUser(@RequestParam(name = "id") Long id){
+    public ResponseEntity<?> deleteUser(@RequestParam(name = "id") Long id){
         userService.deleteUser(id);
         return ResponseEntity.ok("User deleted successfully");
     }
