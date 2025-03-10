@@ -8,7 +8,7 @@ import java.util.List;
 
 @Entity
 @Table(
-        name = "question"
+        name = "questions"
 )
 @NoArgsConstructor
 @AllArgsConstructor
@@ -19,10 +19,9 @@ public class QuestionEntity extends BaseEntity {
     private String questionText;
 
     @ManyToOne
-    @JoinColumn(name = "topic_id")
-    private TopicEntity topic;
+    private TestEntity test;
 
-    @OneToMany(mappedBy = "question", cascade = CascadeType.ALL)
+    @OneToMany
     private List<OptionEntity> options;
 
     // Constructors, Getters, Setters

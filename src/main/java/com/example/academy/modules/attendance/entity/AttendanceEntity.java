@@ -1,14 +1,13 @@
 package com.example.academy.modules.attendance.entity;
 
 import com.example.academy.core.common.BaseEntity;
+import com.example.academy.modules.topic.entity.LessonEntity;
 import com.example.academy.modules.user.entity.UserEntity;
-import jakarta.persistence.Entity;
-import jakarta.persistence.JoinColumn;
-import jakarta.persistence.ManyToOne;
-import jakarta.persistence.Table;
+import jakarta.persistence.*;
 import lombok.*;
 
 import java.time.LocalDate;
+import java.util.List;
 
 @Entity
 @Table(
@@ -24,9 +23,10 @@ public class AttendanceEntity extends BaseEntity {
     @JoinColumn(name = "user_id")
     private UserEntity user;
 
-    private LocalDate date;
-    private boolean isPresent;
+    @ManyToOne
+    private LessonEntity lesson;
 
-    // Constructors, Getters, Setters
+    @OneToMany
+    private List<AttendanceDetailEntity> attendanceDetails;
 }
 
