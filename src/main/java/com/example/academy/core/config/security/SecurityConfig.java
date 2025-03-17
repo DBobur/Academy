@@ -71,7 +71,7 @@ public class SecurityConfig {
                         "/api/v1/user/reset-password",
                         "/api/v1/user/confirm-reset",
                         "/v3/api-docs/**", "/swagger-ui/**", "/swagger-ui.html",
-                        "/oauth2/**"  // OAuth2 uchun ruxsat
+                        "/api/v1/auth/oauth2/**"  // OAuth2 uchun ruxsat
                 ).permitAll()
                 .anyRequest().fullyAuthenticated()
                 .and()
@@ -81,10 +81,10 @@ public class SecurityConfig {
                 .authenticationEntryPoint(authenticationEntryPoint())
                 .accessDeniedHandler(accessDeniedHandler())
                 .and()
-                .oauth2Login()
-                .defaultSuccessUrl("/loginSuccess", true)
-                .failureUrl("/loginFailure")
-                .and()
+//                .oauth2Login()
+//                .defaultSuccessUrl("/loginSuccess", true)
+//                .failureUrl("/loginFailure")
+//                .and()
                 .addFilterBefore(new JwtTokenFilter(jwtTokenUtil, userDetailsService), UsernamePasswordAuthenticationFilter.class)
                 .build();
     }

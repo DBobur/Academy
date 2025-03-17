@@ -3,13 +3,17 @@ package com.example.academy.modules.user.controller;
 import com.example.academy.core.domain.request.user.LoginRequest;
 import com.example.academy.core.domain.request.user.UserRequest;
 import com.example.academy.core.domain.response.user.UserResponse;
+import com.example.academy.modules.user.service.Auth2Service;
 import com.example.academy.modules.user.service.AuthService;
 import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
 import org.springframework.beans.factory.annotation.Value;
+import org.springframework.http.HttpEntity;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.security.access.prepost.PreAuthorize;
+import org.springframework.util.LinkedMultiValueMap;
+import org.springframework.util.MultiValueMap;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.Map;
@@ -20,12 +24,7 @@ import java.util.Map;
 public class AuthController {
 
     private final AuthService authService;
-
-    @Value("${spring.security.oauth2.client.registration.google.client-id}")
-    private String clientId;
-
-    @Value("${spring.security.oauth2.client.registration.google.client-secret}")
-    private String clientSecret;
+    private final Auth2Service auth2Service;
 
     @PostMapping("/login")
     public ResponseEntity<?> login(@Valid @RequestBody LoginRequest request) {
@@ -41,13 +40,16 @@ public class AuthController {
             return ResponseEntity.status(HttpStatus.CREATED).body(userResponse);
     }
 
-    @GetMapping("/oauth2/client-info")
-    public ResponseEntity<?> getClientInfo() {
-        Map<String, String> response = Map.of(
-                "clientId", clientId,
-                "redirectUri", clientSecret
-        );
-        return ResponseEntity.ok(response);
+    @GetMapping("/oauth2/link")
+    public ResponseEntity<Map<String, String>> getOAuth2Link() {
+        String authorizationUrl = auth2Service.generateGoogleOAuth2Link();
+        return ResponseEntity.ok(Map.of("url", authorizationUrl));
     }
 
+    @GetMapping("/oauth2/code")
+    public ResponseEntity<Map<String, String>> handleOAuth2Code(@RequestParam String code) {
+        String jwtToken = auth2Service.handleOAuth2Code(code);
+        System.out.println(jwtToken);
+        return ResponseEntity.ok(Map.of("token", jwtToken));
+    }
 }
