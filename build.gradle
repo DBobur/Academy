@@ -37,6 +37,9 @@ dependencies {
     implementation 'org.springdoc:springdoc-openapi-starter-webmvc-ui:2.6.0'
     implementation 'org.springframework.boot:spring-boot-starter-mail'
     implementation 'org.springframework:spring-aop'
+    implementation 'org.springframework.boot:spring-boot-starter-oauth2-client'
+
+
     testImplementation 'com.icegreen:greenmail:1.6.0'
 
 

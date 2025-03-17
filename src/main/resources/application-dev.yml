@@ -5,6 +5,18 @@ jwt:
   expiration: 36000000 # 10 soat millisekundlarda
 
 spring:
+  oauth2:
+    client:
+      registration:
+        google:
+          client-id: 194499559749-e14j715ul8l887a1csmagfigj5k1aevk.apps.googleusercontent.com
+          client-secret: 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
+          scope: profile, email
+#        facebook:
+#          clientId: 1695013041395273
+#          clientSecret: fe7e1e9d30a4ea49d29901d5a1d17581
+#          scope: public_profile, email
+
   application:
     name: Academy
 
@@ -19,7 +31,7 @@ spring:
       hibernate:
         dialect: org.hibernate.dialect.PostgreSQLDialect
     hibernate:
-      ddl-auto: create
+      ddl-auto: update
 
   mail:
     host: smtp.gmail.com

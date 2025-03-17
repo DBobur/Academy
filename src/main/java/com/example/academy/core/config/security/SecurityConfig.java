@@ -62,15 +62,16 @@ public class SecurityConfig {
     @Bean
     public SecurityFilterChain securityFilterChain(HttpSecurity http) throws Exception {
         return http
-                .csrf().disable() // CSRF himoyasi o'chirilgan
-                .cors().and() // CORS sozlamalari faollashtirildi
+                .csrf().disable()
+                .cors().and()
                 .authorizeHttpRequests()
                 .requestMatchers(
                         "/api/v1/auth/login",
                         "/api/v1/auth/register",
                         "/api/v1/user/reset-password",
                         "/api/v1/user/confirm-reset",
-                        "/v3/api-docs/**", "/swagger-ui/**", "/swagger-ui.html"
+                        "/v3/api-docs/**", "/swagger-ui/**", "/swagger-ui.html",
+                        "/oauth2/**"  // OAuth2 uchun ruxsat
                 ).permitAll()
                 .anyRequest().fullyAuthenticated()
                 .and()
@@ -79,6 +80,10 @@ public class SecurityConfig {
                 .exceptionHandling()
                 .authenticationEntryPoint(authenticationEntryPoint())
                 .accessDeniedHandler(accessDeniedHandler())
+                .and()
+                .oauth2Login()
+                .defaultSuccessUrl("/loginSuccess", true)
+                .failureUrl("/loginFailure")
                 .and()
                 .addFilterBefore(new JwtTokenFilter(jwtTokenUtil, userDetailsService), UsernamePasswordAuthenticationFilter.class)
                 .build();
