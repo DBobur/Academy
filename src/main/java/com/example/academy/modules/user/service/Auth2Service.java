@@ -6,7 +6,6 @@ import com.example.academy.modules.user.entity.UserEntity;
 import com.example.academy.modules.user.enums.UserRole;
 import com.example.academy.modules.user.repository.UserRepository;
 import lombok.RequiredArgsConstructor;
-import org.springframework.beans.factory.annotation.Value;
 import org.springframework.http.*;
 import org.springframework.stereotype.Service;
 import org.springframework.util.LinkedMultiValueMap;

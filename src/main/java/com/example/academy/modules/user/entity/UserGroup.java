@@ -18,7 +18,7 @@ import java.util.List;
 public class UserGroup extends BaseEntity {
     private String groupName;
 
-    @ManyToMany
+    @ManyToMany(fetch = FetchType.EAGER)
     @JoinTable(
             name = "group_users",
             joinColumns = @JoinColumn(name = "group_id"),

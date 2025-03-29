@@ -7,13 +7,8 @@ import com.example.academy.modules.user.service.Auth2Service;
 import com.example.academy.modules.user.service.AuthService;
 import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
-import org.springframework.beans.factory.annotation.Value;
-import org.springframework.http.HttpEntity;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
-import org.springframework.security.access.prepost.PreAuthorize;
-import org.springframework.util.LinkedMultiValueMap;
-import org.springframework.util.MultiValueMap;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.Map;
@@ -33,12 +28,14 @@ public class AuthController {
     }
 
     @PostMapping("/register")
-    @PreAuthorize("hasAnyRole('SUPER','ADMIN','MANEGER')")
+    //@PreAuthorize("hasAnyRole('SUPER','ADMIN','MANEGER')")
     public ResponseEntity<?> register(@Valid @RequestBody UserRequest request) {
 
             UserResponse userResponse = authService.save(request);
             return ResponseEntity.status(HttpStatus.CREATED).body(userResponse);
     }
+
+
 
     @GetMapping("/oauth2/link")
     public ResponseEntity<Map<String, String>> getOAuth2Link() {
