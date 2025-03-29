@@ -1,43 +1,28 @@
 
 
 jwt:
-  secret: "753778214125442A472D4B6150645367566B59703373367639792F423F452848"
-  expiration: 36000000 # 10 soat millisekundlarda
+  secret: ${JWT_SECRET}
+  expiration: 36000000
 
 spring:
-  oauth2:
-    client:
-      registration:
-        google:
-          client-id: 194499559749-e14j715ul8l887a1csmagfigj5k1aevk.apps.googleusercontent.com
-          client-secret: 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
-          scope: profile, email
-#        facebook:
-#          clientId: 1695013041395273
-#          clientSecret: fe7e1e9d30a4ea49d29901d5a1d17581
-#          scope: public_profile, email
-
   application:
     name: Academy
-
   datasource:
-    url: jdbc:postgresql://localhost:5432/academy
-    username: postgres
-    password: 1483
+    url: jdbc:postgresql://${DB_HOST}/academy
+    username: ${DB_USER}
+    password: ${DB_PASSWORD}
     driver-class-name: org.postgresql.Driver
-
   jpa:
     properties:
       hibernate:
         dialect: org.hibernate.dialect.PostgreSQLDialect
     hibernate:
       ddl-auto: update
-
   mail:
-    host: smtp.gmail.com
-    port: 587
-    username: davlatboyev2024@gmail.com
-    password: zkeozetmaezxhonj
+    host: ${MAIL_HOST}
+    port: ${MAIL_PORT}
+    username: ${MAIL_USERNAME}
+    password: ${MAIL_PASSWORD}
     properties:
       mail.smtp.auth: true
       mail.smtp.starttls.enable: true
@@ -45,5 +30,22 @@ spring:
     location: dev-banner
 
 server:
-  port: 8080
+  port: ${SERVER_PORT}
+
+
+oauth2:
+  client:
+    google:
+      client-id: ${GOOGLE_CLIENT_ID}
+      client-secret: ${GOOGLE_CLIENT_SECRET}
+      redirect-url-login: http://localhost:8080/api/v1/oauth2/callback-login/google
+      redirect-url-register: http://localhost:8080/api/v1/oauth2/callback-register/google
+
+    facebook:
+      client-id: ${FACEBOOK_CLIENT_ID}
+      client-secret: ${FACEBOOK_CLIENT_SECRET}
+      redirect-url-login: http://localhost:8080/api/v1/oauth2/callback-login/facebook
+      redirect-url-register: http://localhost:8080/api/v1/oauth2/callback-register/facebook
+
+
 

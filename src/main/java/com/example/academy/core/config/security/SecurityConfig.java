@@ -71,6 +71,7 @@ public class SecurityConfig {
                         "/api/v1/user/reset-password",
                         "/api/v1/user/confirm-reset",
                         "/v3/api-docs/**", "/swagger-ui/**", "/swagger-ui.html",
+                        "/api/v1/oauth2/**",  // OAuth2 uchun ruxsat
                         "/api/v1/auth/oauth2/**"  // OAuth2 uchun ruxsat
                 ).permitAll()
                 .anyRequest().fullyAuthenticated()

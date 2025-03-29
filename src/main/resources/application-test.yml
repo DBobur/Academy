@@ -1,9 +1,3 @@
-
-
-jwt:
-  secret: "test-secret-key"
-  expiration: 36000000 # 10 soat millisekundlarda
-
 spring:
   application:
     name: AcademyTest
@@ -15,7 +9,6 @@ spring:
     password:
     hikari:
       maximum-pool-size: 5
-
   jpa:
     database-platform: org.hibernate.dialect.H2Dialect
     hibernate:
