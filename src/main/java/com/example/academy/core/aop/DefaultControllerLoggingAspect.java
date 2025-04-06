@@ -14,13 +14,13 @@ public class DefaultControllerLoggingAspect {
 
     private static final Logger logger = LoggerFactory.getLogger(DefaultControllerLoggingAspect.class);
 
-    // Barcha Controller metodlari uchun
+    // for all controllers
     @Around("execution(* com.example.academy.modules.*.controller.*.*(..))")
     public Object logControllerMethods(ProceedingJoinPoint joinPoint) throws Throwable {
         String methodName = joinPoint.getSignature().getName();
         String className = joinPoint.getTarget().getClass().getSimpleName();
 
-        logger.info("Controllerga so‘rov keldi: {}.{}()", className, methodName);
+        logger.info("Controller-ga so‘rov keldi: {}.{}()", className, methodName);
 
         long startTime = System.currentTimeMillis();
         Object result = joinPoint.proceed(); // Asosiy metodni chaqirish

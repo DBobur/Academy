@@ -32,5 +32,4 @@ public class UserContract extends BaseEntity {
    /* @OneToMany(mappedBy = "contract", cascade = CascadeType.ALL, orphanRemoval = true)
     private List<ContractDocument> documents;*/
 
-
 }

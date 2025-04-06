@@ -1,0 +1,32 @@
+databaseChangeLog:
+  - changeSet:
+      id: create-user-group
+      author: abdulloh
+      changes:
+        - createTable:
+            tableName: user_group
+            columns:
+              - column: { name: id, type: UUID, constraints: { primaryKey: true } }
+              - column: { name: group_name, type: VARCHAR(100) }
+              - column: { name: created_at, type: TIMESTAMP }
+              - column: { name: updated_at, type: TIMESTAMP }
+
+        - createTable:
+            tableName: group_users
+            columns:
+              - column: { name: group_id, type: UUID }
+              - column: { name: user_id, type: UUID }
+
+        - addForeignKeyConstraint:
+            baseTableName: group_users
+            baseColumnNames: group_id
+            referencedTableName: user_group
+            referencedColumnNames: id
+            constraintName: fk_group_users_group
+
+        - addForeignKeyConstraint:
+            baseTableName: group_users
+            baseColumnNames: user_id
+            referencedTableName: users
+            referencedColumnNames: id
+            constraintName: fk_group_users_user

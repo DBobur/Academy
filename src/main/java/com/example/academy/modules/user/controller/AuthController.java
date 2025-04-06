@@ -9,6 +9,7 @@ import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.Map;
@@ -28,7 +29,7 @@ public class AuthController {
     }
 
     @PostMapping("/register")
-    //@PreAuthorize("hasAnyRole('SUPER','ADMIN','MANEGER')")
+    @PreAuthorize("hasAnyRole('SUPER','ADMIN','MANEGER')")
     public ResponseEntity<?> register(@Valid @RequestBody UserRequest request) {
 
             UserResponse userResponse = authService.save(request);

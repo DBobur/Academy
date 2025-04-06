@@ -1,0 +1,24 @@
+databaseChangeLog:
+  - changeSet:
+      id: create-user-contract
+      author: abdulloh
+      changes:
+        - createTable:
+            tableName: user_contract
+            columns:
+              - column: { name: id, type: UUID, constraints: { primaryKey: true } }
+              - column: { name: user_id, type: UUID, constraints: { nullable: false } }
+              - column: { name: contract_ty, type: VARCHAR(50) }
+              - column: { name: start_date, type: DATE, constraints: { nullable: false } }
+              - column: { name: end_date, type: DATE, constraints: { nullable: false } }
+              - column: { name: status, type: VARCHAR(50) }
+              - column: { name: contract_details, type: CLOB }
+              - column: { name: created_at, type: TIMESTAMP }
+              - column: { name: updated_at, type: TIMESTAMP }
+
+        - addForeignKeyConstraint:
+            baseTableName: user_contract
+            baseColumnNames: user_id
+            referencedTableName: users
+            referencedColumnNames: id
+            constraintName: fk_user_contract_user

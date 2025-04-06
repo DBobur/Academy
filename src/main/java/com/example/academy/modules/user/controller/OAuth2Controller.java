@@ -22,9 +22,7 @@ public class OAuth2Controller {
     @GetMapping("/login/{provider}")
     public ResponseEntity<String> getAuthUrlForLogin(@PathVariable("provider") String providerName) {
         OAuth2Provider provider = OAuth2Provider.valueOf(providerName.toUpperCase());
-
         String url = oAuth2ServiceFactory.getService(provider).getAuthorizationUrl(SuccessType.LOGIN);
-
         return ResponseEntity.ok(url);
     }
 
@@ -49,8 +47,9 @@ public class OAuth2Controller {
     }
 
     @GetMapping("/callback-register/{provider}")
-    public ResponseEntity<String> callbackRepository(@PathVariable("provider") String providerName,
-                                           @RequestParam("code") String code) {
+    public ResponseEntity<String> callbackRepository(
+            @PathVariable("provider") String providerName,
+            @RequestParam("code") String code) {
         OAuth2Provider provider = OAuth2Provider.valueOf(providerName.toUpperCase());
         OAuth2Service service = oAuth2ServiceFactory.getService(provider);
 
