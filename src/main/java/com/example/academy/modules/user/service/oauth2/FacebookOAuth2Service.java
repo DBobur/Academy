@@ -4,6 +4,7 @@ import com.example.academy.modules.user.enums.OAuth2Provider;
 import com.example.academy.modules.user.enums.SuccessType;
 import lombok.RequiredArgsConstructor;
 import org.springframework.beans.factory.annotation.Value;
+import org.springframework.context.annotation.Profile;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 import org.springframework.web.client.RestTemplate;
@@ -17,6 +18,7 @@ import java.util.UUID;
 
 @Service("facebook")
 @RequiredArgsConstructor
+@Profile("dev")
 public class FacebookOAuth2Service implements OAuth2Service {
 
     @Value("${oauth2.client.facebook.client-id}")

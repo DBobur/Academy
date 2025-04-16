@@ -6,6 +6,7 @@ import com.example.academy.modules.user.entity.UserEntity;
 import com.example.academy.modules.user.enums.UserRole;
 import com.example.academy.modules.user.repository.UserRepository;
 import lombok.RequiredArgsConstructor;
+import org.springframework.context.annotation.Profile;
 import org.springframework.http.*;
 import org.springframework.stereotype.Service;
 import org.springframework.util.LinkedMultiValueMap;
@@ -16,6 +17,7 @@ import java.util.Map;
 
 @Service
 @RequiredArgsConstructor
+@Profile("dev")
 public class Auth2Service {
 
     //@Value("${spring.security.oauth2.client.registration.google.client-id}")

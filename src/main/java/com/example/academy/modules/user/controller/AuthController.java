@@ -20,7 +20,7 @@ import java.util.Map;
 public class AuthController {
 
     private final AuthService authService;
-    private final Auth2Service auth2Service;
+    //private final Auth2Service auth2Service;
 
     @PostMapping("/login")
     public ResponseEntity<?> login(@Valid @RequestBody LoginRequest request) {
@@ -36,7 +36,7 @@ public class AuthController {
             return ResponseEntity.status(HttpStatus.CREATED).body(userResponse);
     }
 
-    @GetMapping("/oauth2/link")
+    /*@GetMapping("/oauth2/link")
     public ResponseEntity<Map<String, String>> getOAuth2Link() {
         String authorizationUrl = auth2Service.generateGoogleOAuth2Link();
         return ResponseEntity.ok(Map.of("url", authorizationUrl));
@@ -47,5 +47,5 @@ public class AuthController {
         String jwtToken = auth2Service.handleOAuth2Code(code);
         System.out.println(jwtToken);
         return ResponseEntity.ok(Map.of("token", jwtToken));
-    }
+    }*/
 }

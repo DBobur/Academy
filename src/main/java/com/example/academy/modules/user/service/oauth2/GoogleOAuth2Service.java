@@ -6,6 +6,7 @@ import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.hibernate.mapping.Table;
 import org.springframework.beans.factory.annotation.Value;
+import org.springframework.context.annotation.Profile;
 import org.springframework.http.*;
 import org.springframework.stereotype.Service;
 import org.springframework.util.LinkedMultiValueMap;
@@ -20,6 +21,7 @@ import java.util.Map;
 @Service("google")
 @RequiredArgsConstructor
 @Slf4j
+@Profile("dev")
 public class GoogleOAuth2Service implements OAuth2Service {
     @Value("${oauth2.client.google.client-id}")
     private String clientId;

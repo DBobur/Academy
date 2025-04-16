@@ -7,12 +7,14 @@ import com.example.academy.modules.user.service.oauth2.OAuth2Service;
 import com.example.academy.modules.user.service.oauth2.OAuth2ServiceFactory;
 import com.example.academy.modules.user.service.oauth2.OAuthUserInfo;
 import lombok.RequiredArgsConstructor;
+import org.springframework.context.annotation.Profile;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 @RestController
 @RequestMapping("api/v1/oauth2")
 @RequiredArgsConstructor
+@Profile("dev")
 public class OAuth2Controller {
 
     private final OAuth2ServiceFactory oAuth2ServiceFactory;
