@@ -98,10 +98,10 @@ public class SecurityConfig {
     @Bean
     public CorsConfigurationSource corsConfigurationSource() {
         CorsConfiguration corsConfiguration = new CorsConfiguration();
-        corsConfiguration.setAllowedOriginPatterns(List.of("/**")); // Frontend URL
+        corsConfiguration.setAllowedOrigins(List.of("http://localhost:5173"));
         corsConfiguration.setAllowedMethods(List.of("GET", "POST", "PUT", "DELETE", "OPTIONS")); // Ruxsat etilgan HTTP metodlar
         corsConfiguration.setAllowedHeaders(List.of("Authorization", "Content-Type", "Accept")); // Ruxsat etilgan sarlavhalar
-        //corsConfiguration.setAllowCredentials(true); // Cookie yoki auth ma'lumotlariga ruxsat
+        corsConfiguration.setAllowCredentials(true); // Cookie yoki auth ma'lumotlariga ruxsat
 
         UrlBasedCorsConfigurationSource source = new UrlBasedCorsConfigurationSource();
         source.registerCorsConfiguration("/**", corsConfiguration);

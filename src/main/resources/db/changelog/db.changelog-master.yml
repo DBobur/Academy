@@ -5,3 +5,5 @@ databaseChangeLog:
       file: db/changelog/user/2025-04-06-user-group.yml
   - include:
       file: db/changelog/user/2025-04-06-password-reset-token.yml
+  - include:
+      file: db/changelog/user/2025-04-06-user-contract.yml

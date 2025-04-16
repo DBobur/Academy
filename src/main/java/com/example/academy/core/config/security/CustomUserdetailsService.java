@@ -32,12 +32,12 @@ public class CustomUserdetailsService implements UserDetailsService {
 
             @Override
             public String getPassword() {
-                return "";
+                return "don't have password !";
             }
 
             @Override
             public String getUsername() {
-                return "";
+                return user.getUsername();
             }
 
             @Override

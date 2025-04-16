@@ -1,11 +1,13 @@
 package com.example.academy.core.domain.request.user;
 
+import com.example.academy.modules.user.enums.UserRole;
 import jakarta.validation.constraints.*;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
+import java.util.HashSet;
 import java.util.Set;
 
 @Data
@@ -36,8 +38,12 @@ public class UserRequest {
 
     private String dateOfBirth;// YYYY-MM-DD
 
-    @NotEmpty
     private Set<String> roles;
+
+    {
+        roles = new HashSet<>();
+        roles.add(UserRole.USER.name());
+    }
 
 }
 

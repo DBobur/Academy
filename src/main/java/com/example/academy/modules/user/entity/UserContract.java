@@ -4,10 +4,17 @@ import com.example.academy.core.common.BaseEntity;
 import com.example.academy.modules.user.enums.ContractStatus;
 import com.example.academy.modules.user.enums.ContractType;
 import jakarta.persistence.*;
+import lombok.*;
 
 import java.time.LocalDate;
 
 @Entity
+@Table(name = "user_contracts")
+@NoArgsConstructor
+@AllArgsConstructor
+@Getter
+@Setter
+@Builder
 public class UserContract extends BaseEntity {
 
     @ManyToOne

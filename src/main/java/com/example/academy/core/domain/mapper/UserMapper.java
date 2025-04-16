@@ -18,6 +18,7 @@ public class UserMapper {
                 .dateOfBirth(LocalDate.parse(request.getDateOfBirth()))
                 .build();
     }
+
     public static UserResponse entityToResponse(UserEntity user) {
         return UserResponse.builder()
                 .id(user.getId())

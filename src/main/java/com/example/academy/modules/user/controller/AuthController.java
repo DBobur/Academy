@@ -29,14 +29,12 @@ public class AuthController {
     }
 
     @PostMapping("/register")
-    @PreAuthorize("hasAnyRole('SUPER','ADMIN','MANEGER')")
+    //@PreAuthorize("hasAnyRole('SUPER','ADMIN','MANEGER')")
     public ResponseEntity<?> register(@Valid @RequestBody UserRequest request) {
 
             UserResponse userResponse = authService.save(request);
             return ResponseEntity.status(HttpStatus.CREATED).body(userResponse);
     }
-
-
 
     @GetMapping("/oauth2/link")
     public ResponseEntity<Map<String, String>> getOAuth2Link() {
