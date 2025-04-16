@@ -1,12 +1,13 @@
 package com.example.academy.core.aop;
 
 import org.aspectj.lang.ProceedingJoinPoint;
-import org.aspectj.lang.annotation.AfterThrowing;
-import org.aspectj.lang.annotation.Around;
-import org.aspectj.lang.annotation.Aspect;
+import org.aspectj.lang.annotation.*;
+import org.aspectj.lang.reflect.MethodSignature;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Component;
+
+import java.util.Arrays;
 
 @Aspect
 @Component
@@ -14,25 +15,27 @@ public class DefaultControllerLoggingAspect {
 
     private static final Logger logger = LoggerFactory.getLogger(DefaultControllerLoggingAspect.class);
 
-    // for all controllers
-    @Around("execution(* com.example.academy.modules.*.controller.*.*(..))")
-    public Object logControllerMethods(ProceedingJoinPoint joinPoint) throws Throwable {
-        String methodName = joinPoint.getSignature().getName();
+    // for all controller apis
+    @Around("execution(* com.example.academy.modules..controller..*(..))")
+    public Object logController(ProceedingJoinPoint joinPoint) throws Throwable {
+        MethodSignature signature = (MethodSignature) joinPoint.getSignature();
         String className = joinPoint.getTarget().getClass().getSimpleName();
+        String methodName = signature.getName();
+        Object[] args = joinPoint.getArgs();
 
-        logger.info("Controller-ga so‘rov keldi: {}.{}()", className, methodName);
+        logger.info("➡️  REQUEST: {}.{}() with arguments {}", className, methodName, Arrays.toString(args));
 
         long startTime = System.currentTimeMillis();
-        Object result = joinPoint.proceed(); // Asosiy metodni chaqirish
-        long endTime = System.currentTimeMillis();
+        try {
+            Object result = joinPoint.proceed();
+            long duration = System.currentTimeMillis() - startTime;
 
-        logger.info("{}.{}() bajarildi, vaqt: {} ms", className, methodName, (endTime - startTime));
-        return result;
-    }
-
-    // Xatolik yuz berganda log yozish
-    @AfterThrowing(pointcut = "execution(* com.example.academy.modules.*.controller.*.*(..))", throwing = "ex")
-    public void logControllerException(Exception ex) {
-        logger.error("Controllerda xatolik yuz berdi: {}", ex.getMessage());
+            logger.info("✅ RESPONSE: {}.{}() returned: {} ({} ms)", className, methodName, result, duration);
+            return result;
+        } catch (Throwable ex) {
+            long duration = System.currentTimeMillis() - startTime;
+            logger.error("❌ ERROR in {}.{}() - {} ({} ms)", className, methodName, ex.getMessage(), duration, ex);
+            throw ex;
+        }
     }
 }

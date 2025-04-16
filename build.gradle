@@ -38,6 +38,7 @@ dependencies {
     implementation 'org.springframework.boot:spring-boot-starter-mail'
     implementation 'org.springframework:spring-aop'
     implementation 'org.springframework.boot:spring-boot-starter-oauth2-client'
+    //implementation 'org.liquibase:liquibase-core'
 
 
     testImplementation 'com.icegreen:greenmail:1.6.0'
