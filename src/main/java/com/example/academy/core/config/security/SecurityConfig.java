@@ -37,7 +37,6 @@ public class SecurityConfig {
     private final JwtTokenUtil jwtTokenUtil;
     private final CustomUserdetailsService userDetailsService;
 
-    // Umumiy xatolarni boshqarish uchun yordamchi metod
     private void handleErrorResponse(HttpServletResponse response, String errorPath, String errorMessage, int errorCode) throws IOException {
         AppErrorResponse appErrorDto = new AppErrorResponse(errorPath, errorMessage, errorCode, LocalDateTime.now());
         response.setStatus(errorCode);
@@ -67,12 +66,10 @@ public class SecurityConfig {
                 .authorizeHttpRequests()
                 .requestMatchers(
                         "/api/v1/auth/login",
-                        "/api/v1/auth/register",
                         "/api/v1/user/reset-password",
                         "/api/v1/user/confirm-reset",
                         "/v3/api-docs/**", "/swagger-ui/**", "/swagger-ui.html",
-                        "/api/v1/oauth2/**",  // OAuth2 uchun ruxsat
-                        "/api/v1/auth/oauth2/**"  // OAuth2 uchun ruxsat
+                        "/api/v1/oauth2/**"
                 ).permitAll()
                 .anyRequest().fullyAuthenticated()
                 .and()
@@ -82,10 +79,6 @@ public class SecurityConfig {
                 .authenticationEntryPoint(authenticationEntryPoint())
                 .accessDeniedHandler(accessDeniedHandler())
                 .and()
-//                .oauth2Login()
-//                .defaultSuccessUrl("/loginSuccess", true)
-//                .failureUrl("/loginFailure")
-//                .and()
                 .addFilterBefore(new JwtTokenFilter(jwtTokenUtil, userDetailsService), UsernamePasswordAuthenticationFilter.class)
                 .build();
     }
@@ -101,7 +94,7 @@ public class SecurityConfig {
         corsConfiguration.setAllowedOrigins(List.of("http://localhost:5173"));
         corsConfiguration.setAllowedMethods(List.of("GET", "POST", "PUT", "DELETE", "OPTIONS")); // Ruxsat etilgan HTTP metodlar
         corsConfiguration.setAllowedHeaders(List.of("Authorization", "Content-Type", "Accept")); // Ruxsat etilgan sarlavhalar
-        corsConfiguration.setAllowCredentials(true); // Cookie yoki auth ma'lumotlariga ruxsat
+        corsConfiguration.setAllowCredentials(true);
 
         UrlBasedCorsConfigurationSource source = new UrlBasedCorsConfigurationSource();
         source.registerCorsConfiguration("/**", corsConfiguration);
