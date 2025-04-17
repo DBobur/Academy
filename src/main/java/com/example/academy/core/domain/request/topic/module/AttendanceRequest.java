@@ -1,6 +1,5 @@
-package com.example.academy.core.domain.request.attendance;
+package com.example.academy.core.domain.request.topic.module;
 
-import com.example.academy.core.domain.request.attendanceDetail.AttendanceDetailRequest;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
