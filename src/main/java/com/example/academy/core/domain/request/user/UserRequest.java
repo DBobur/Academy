@@ -38,12 +38,13 @@ public class UserRequest {
 
     private String dateOfBirth;// YYYY-MM-DD
 
-    private Set<String> roles;
+    private String role;
+    //private Set<String> roles;
 
-    {
+    /*{
         roles = new HashSet<>();
         roles.add(UserRole.USER.name());
-    }
+    }*/
 
 }
 

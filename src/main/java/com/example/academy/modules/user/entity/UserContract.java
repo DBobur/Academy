@@ -17,8 +17,7 @@ import java.time.LocalDate;
 @Builder
 public class UserContract extends BaseEntity {
 
-    @ManyToOne
-    @JoinColumn(name = "user_id", nullable = false)
+    @ManyToOne(fetch = FetchType.LAZY)
     private UserEntity user;
 
     @Enumerated(EnumType.STRING)
@@ -34,6 +33,8 @@ public class UserContract extends BaseEntity {
     private ContractStatus status;
 
     @Lob
+    @Basic(fetch = FetchType.LAZY)
+    @Column(name = "contract_details")
     private String contractDetails;
 
    /* @OneToMany(mappedBy = "contract", cascade = CascadeType.ALL, orphanRemoval = true)

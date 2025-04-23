@@ -3,11 +3,14 @@ package com.example.academy.modules.user.service;
 import com.example.academy.core.domain.mapper.UserMapper;
 import com.example.academy.core.domain.request.user.UserUpdateRequest;
 import com.example.academy.core.domain.response.user.UserResponse;
+import com.example.academy.core.domain.response.user.UserStatisticsResponse;
 import com.example.academy.core.domain.specific.UserSpecifications;
 import com.example.academy.core.excaption.ResourceNotFoundException;
 import com.example.academy.core.utils.BaseHelper;
 import com.example.academy.modules.user.entity.UserEntity;
+import com.example.academy.modules.user.enums.ContractStatus;
 import com.example.academy.modules.user.enums.UserRole;
+import com.example.academy.modules.user.repository.UserContractRepository;
 import com.example.academy.modules.user.repository.UserRepository;
 import com.example.academy.modules.user.entity.PasswordResetToken;
 import com.example.academy.modules.user.repository.PasswordResetTokenRepository;
@@ -23,12 +26,16 @@ import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 
 import java.time.LocalDateTime;
+import java.util.List;
+import java.util.Map;
 import java.util.UUID;
+import java.util.stream.Collectors;
 
 @Service
 @RequiredArgsConstructor
 public class UserService {
     private final UserRepository userRepository;
+    private final UserContractRepository userContractRepository;
     private final PasswordEncoder passwordEncoder;
     private final EmailService emailService;
     private final PasswordResetTokenRepository passwordResetTokenRepository;
@@ -121,6 +128,28 @@ public class UserService {
 
         passwordResetTokenRepository.delete(resetToken);
     }
+
+    public UserStatisticsResponse getStats() {
+        long totalUsers = userRepository.count();
+
+        long activeContracts = userContractRepository.countByStatus(ContractStatus.ACTIVE);
+        long expiredContracts = userContractRepository.countByStatus(ContractStatus.EXPIRED);
+
+        List<Object[]> roleCountsRaw = userRepository.countUsersByRole();
+        Map<String, Long> roleCounts = roleCountsRaw.stream()
+                .collect(Collectors.toMap(
+                        row -> row[0].toString(),
+                        row -> ((Number) row[1]).longValue()
+                ));
+
+        return UserStatisticsResponse.builder()
+                .totalUsers(totalUsers)
+                .activeContracts(activeContracts)
+                .expiredContracts(expiredContracts)
+                .roleCounts(roleCounts)
+                .build();
+    }
+
 
     public UserEntity findByUsername(String username) {
         return userRepository.findByUsername(username).orElseThrow(
