@@ -18,13 +18,9 @@ import java.time.LocalDate;
 @Builder
 public class AttendanceDetailEntity extends BaseEntity {
 
-    @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "attendance_id")
-    private AttendanceEntity attendance;
+    private Long attendanceId;
 
-    @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "student_id")
-    private UserEntity student;
+    private Long studentId;
 
     private LocalDate date;
 
