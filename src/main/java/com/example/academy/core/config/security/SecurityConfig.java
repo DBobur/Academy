@@ -95,7 +95,7 @@ public class SecurityConfig {
         corsConfiguration.setAllowedOrigins(List.of("*"));
         corsConfiguration.setAllowedMethods(List.of("GET", "POST", "PUT", "DELETE", "OPTIONS")); // Ruxsat etilgan HTTP metodlar
         corsConfiguration.setAllowedHeaders(List.of("Authorization", "Content-Type", "Accept")); // Ruxsat etilgan sarlavhalar
-//        corsConfiguration.setAllowCredentials(true);
+        corsConfiguration.setAllowCredentials(true);
 
         UrlBasedCorsConfigurationSource source = new UrlBasedCorsConfigurationSource();
         source.registerCorsConfiguration("/**", corsConfiguration);
