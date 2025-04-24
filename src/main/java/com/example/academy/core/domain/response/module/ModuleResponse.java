@@ -1,10 +1,8 @@
-package com.example.academy.core.domain.response.user;
+package com.example.academy.core.domain.response.module;
 
 import com.example.academy.modules.topic.entity.LessonEntity;
-import com.example.academy.modules.user.enums.UserRole;
 import lombok.Builder;
 
-import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.util.List;
 

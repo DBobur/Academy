@@ -2,7 +2,7 @@ package com.example.academy.modules.user.service;
 
 import com.example.academy.core.config.security.CustomUserdetailsService;
 import com.example.academy.core.config.security.JwtTokenUtil;
-import com.example.academy.core.domain.mapper.UserMapper;
+import com.example.academy.core.domain.mapper.user.UserMapper;
 import com.example.academy.core.domain.request.user.LoginRequest;
 import com.example.academy.core.domain.request.user.UserRequest;
 import com.example.academy.core.domain.response.user.UserResponse;
