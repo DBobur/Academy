@@ -1,4 +1,4 @@
-package com.example.academy.core.domain.request.topic.module;
+package com.example.academy.core.domain.request.topic.module.attandance;
 
 import lombok.AllArgsConstructor;
 import lombok.Builder;
@@ -12,7 +12,7 @@ import java.util.List;
 @AllArgsConstructor
 @Builder
 public class AttendanceRequest {
-    private Long userId;  // The user ID (student).
-    private Long lessonId;  // The lesson ID that this attendance relates to.
+    private Long userId;
+    private Long lessonId;
     private List<AttendanceDetailRequest> attendanceDetails;
 }

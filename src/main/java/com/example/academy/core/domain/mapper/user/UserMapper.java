@@ -1,4 +1,4 @@
-package com.example.academy.core.domain.mapper;
+package com.example.academy.core.domain.mapper.user;
 
 import com.example.academy.core.domain.request.user.UserRequest;
 import com.example.academy.core.domain.response.user.UserResponse;

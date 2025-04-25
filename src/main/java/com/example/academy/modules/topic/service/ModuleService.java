@@ -1,7 +1,7 @@
 package com.example.academy.modules.topic.service;
-import com.example.academy.core.domain.mapper.ModuleMapper;
+import com.example.academy.core.domain.mapper.module.ModuleMapper;
 import com.example.academy.core.domain.request.topic.module.ModuleRequest;
-import com.example.academy.core.domain.response.user.ModuleResponse;
+import com.example.academy.core.domain.response.module.ModuleResponse;
 
 import com.example.academy.modules.topic.entity.ModuleEntity;
 import com.example.academy.modules.topic.entity.TopicEntity;
