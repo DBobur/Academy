@@ -1,3 +1,6 @@
+server:
+  port: 8080
+
 spring:
   application:
     name: AcademyTest
@@ -34,8 +37,6 @@ spring:
         mail.smtp.starttls.enable: false
   banner:
     location: test-banner
-server:
-  port: 8082
 
 jwt:
   secret: ${JWT_SECRET}

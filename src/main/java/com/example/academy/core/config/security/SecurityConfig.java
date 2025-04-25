@@ -66,6 +66,7 @@ public class SecurityConfig {
                 .authorizeHttpRequests()
                 .requestMatchers(
                         "/api/v1/auth/login",
+                        "/api/v1/auth/register",
                         "/api/v1/user/reset-password",
                         "/api/v1/user/confirm-reset",
                         "/v3/api-docs/**", "/swagger-ui/**", "/swagger-ui.html",
@@ -91,7 +92,7 @@ public class SecurityConfig {
     @Bean
     public CorsConfigurationSource corsConfigurationSource() {
         CorsConfiguration corsConfiguration = new CorsConfiguration();
-        corsConfiguration.setAllowedOrigins(List.of("http://localhost:5173"));
+        corsConfiguration.setAllowedOrigins(List.of("*"));
         corsConfiguration.setAllowedMethods(List.of("GET", "POST", "PUT", "DELETE", "OPTIONS")); // Ruxsat etilgan HTTP metodlar
         corsConfiguration.setAllowedHeaders(List.of("Authorization", "Content-Type", "Accept")); // Ruxsat etilgan sarlavhalar
         corsConfiguration.setAllowCredentials(true);

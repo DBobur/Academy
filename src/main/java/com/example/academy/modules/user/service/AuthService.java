@@ -8,6 +8,7 @@ import com.example.academy.core.domain.request.user.UserRequest;
 import com.example.academy.core.domain.response.user.UserResponse;
 import com.example.academy.core.utils.BaseHelper;
 import com.example.academy.modules.user.entity.UserEntity;
+import com.example.academy.modules.user.enums.UserRole;
 import com.example.academy.modules.user.repository.UserRepository;
 import jakarta.transaction.Transactional;
 import jakarta.validation.Valid;
@@ -36,6 +37,7 @@ public class AuthService {
                 .password(passwordEncoder.encode(request.getPassword()))
                 .email(request.getEmail())
                 .number(request.getNumber())
+                .role(UserRole.valueOf(request.getRole()))
                 .build();
         BaseHelper.updateIfPresent(request.getAddress(),user::setAddress);
         BaseHelper.updateIfPresent(request.getDateOfBirth(),user::setDateOfBirth);

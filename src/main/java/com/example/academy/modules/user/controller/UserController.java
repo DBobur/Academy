@@ -3,6 +3,7 @@ package com.example.academy.modules.user.controller;
 import com.example.academy.core.domain.mapper.UserMapper;
 import com.example.academy.core.domain.request.user.UserUpdateRequest;
 import com.example.academy.core.domain.response.user.UserResponse;
+import com.example.academy.core.domain.response.user.UserStatisticsResponse;
 import com.example.academy.modules.user.entity.UserEntity;
 import com.example.academy.modules.user.service.UserService;
 import lombok.RequiredArgsConstructor;
@@ -98,6 +99,13 @@ public class UserController {
         UserEntity byUsername = userService.findByUsername(username);
         return ResponseEntity.ok(UserMapper.entityToResponse(byUsername));
     }
+
+    @PreAuthorize("hasAnyRole('SUPER', 'ADMIN')")
+    @GetMapping("/stats")
+    public ResponseEntity<UserStatisticsResponse> getUserStatistics() {
+        return ResponseEntity.ok(userService.getStats());
+    }
+
 
     /*@PreAuthorize("hasAuthority('VIEW_USER_STATS')")
     @GetMapping("/stats")

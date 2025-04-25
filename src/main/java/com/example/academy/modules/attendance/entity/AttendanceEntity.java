@@ -19,14 +19,9 @@ import java.util.List;
 @Setter
 @Builder
 public class AttendanceEntity extends BaseEntity {
-    @ManyToOne
-    @JoinColumn(name = "user_id")
-    private UserEntity user;
 
-    @ManyToOne
-    private LessonEntity lesson;
+    private Long teacherId;
 
-    @OneToMany
-    private List<AttendanceDetailEntity> attendanceDetails;
+    private Long scheduleId;
 }
 

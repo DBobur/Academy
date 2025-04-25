@@ -18,9 +18,9 @@ spring:
         dialect: org.hibernate.dialect.PostgreSQLDialect
     hibernate:
       ddl-auto: update
-  liquibase:
-    enabled: true
-    change-log: classpath:db/changelog/db.changelog-master.yml
+#  liquibase:
+#    enabled: true
+#    change-log: classpath:db/changelog/db.changelog-master.yml
   mail:
     host: ${MAIL_HOST}
     port: ${MAIL_PORT}

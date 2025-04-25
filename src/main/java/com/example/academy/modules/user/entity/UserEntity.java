@@ -7,6 +7,7 @@ import jakarta.persistence.*;
 import jakarta.validation.constraints.Pattern;
 import lombok.*;
 import java.time.LocalDate;
+import java.util.List;
 
 
 @Entity
@@ -39,6 +40,9 @@ public class UserEntity extends BaseEntity {
 
     @Column(nullable = false)
     private boolean isDeleted = false;
+
+    @OneToMany(mappedBy = "user", cascade = CascadeType.ALL, fetch = FetchType.EAGER)
+    private List<UserContract> contracts;
 
     @Enumerated(EnumType.STRING)
     private UserRole role;

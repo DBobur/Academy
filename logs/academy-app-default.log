@@ -1,0 +1,40 @@
+17:52:39.526 INFO  c.example.academy.AcademyApplication - Starting AcademyApplication using Java 17.0.14 with PID 83933 (/Users/bobur/IdeaProjects/Academy/build/classes/java/main started by bobur in /Users/bobur/IdeaProjects/Academy)
+17:52:39.526 INFO  c.example.academy.AcademyApplication - The following 1 profile is active: "dev"
+17:52:40.724 WARN  org.hibernate.orm.deprecation - HHH90000025: PostgreSQLDialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
+17:52:42.123 WARN  o.s.b.a.o.j.JpaBaseConfiguration$JpaWebConfiguration - spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+17:52:43.283 INFO  c.example.academy.AcademyApplication - Started AcademyApplication in 3.916 seconds (process running for 4.112)
+17:53:35.935 WARN  c.e.a.c.c.security.JwtTokenFilter - Authorization sarlavhasi topilmadi yoki noto'g'ri format: null
+17:53:35.937 WARN  o.s.w.s.h.HandlerMappingIntrospector - Cache miss for REQUEST dispatch to '/swagger-ui.html' (previous null). Performing MatchableHandlerMapping lookup. This is logged once only at WARN level, and every time at TRACE.
+17:53:35.966 WARN  c.e.a.c.c.security.JwtTokenFilter - Authorization sarlavhasi topilmadi yoki noto'g'ri format: null
+17:53:35.981 WARN  c.e.a.c.c.security.JwtTokenFilter - Authorization sarlavhasi topilmadi yoki noto'g'ri format: null
+17:53:35.982 WARN  c.e.a.c.c.security.JwtTokenFilter - Authorization sarlavhasi topilmadi yoki noto'g'ri format: null
+17:53:35.982 WARN  c.e.a.c.c.security.JwtTokenFilter - Authorization sarlavhasi topilmadi yoki noto'g'ri format: null
+17:53:35.984 WARN  c.e.a.c.c.security.JwtTokenFilter - Authorization sarlavhasi topilmadi yoki noto'g'ri format: null
+17:53:35.984 WARN  c.e.a.c.c.security.JwtTokenFilter - Authorization sarlavhasi topilmadi yoki noto'g'ri format: null
+17:53:36.184 WARN  c.e.a.c.c.security.JwtTokenFilter - Authorization sarlavhasi topilmadi yoki noto'g'ri format: null
+17:53:36.194 WARN  c.e.a.c.c.security.JwtTokenFilter - Authorization sarlavhasi topilmadi yoki noto'g'ri format: null
+17:53:36.197 WARN  c.e.a.c.c.security.JwtTokenFilter - Authorization sarlavhasi topilmadi yoki noto'g'ri format: null
+17:55:16.025 WARN  c.e.a.c.c.security.JwtTokenFilter - Authorization sarlavhasi topilmadi yoki noto'g'ri format: null
+17:55:16.073 INFO  c.e.a.c.a.DefaultControllerLoggingAspect - ➡️  REQUEST: AuthController.login() with arguments [LoginRequest(username=super_admin, password=super_1234)]
+17:55:16.073 INFO  c.e.a.c.a.DefaultControllerLoggingAspect - ➡️  REQUEST: AuthController.login() with arguments [LoginRequest(username=super_admin, password=super_1234)]
+17:55:16.074 INFO  c.e.a.c.a.DefaultServiceLoggingAspect - Metod chaqirilyapti...
+17:55:16.074 INFO  c.e.a.c.a.DefaultServiceLoggingAspect - Metod chaqirilyapti...
+17:55:16.177 INFO  c.e.a.c.a.DefaultServiceLoggingAspect - Metod bajarildi...
+17:55:16.177 INFO  c.e.a.c.a.DefaultServiceLoggingAspect - String com.example.academy.modules.user.service.AuthService.login(LoginRequest) metodi bajarilish vaqti: 103 ms
+17:55:16.177 INFO  c.e.a.c.a.DefaultServiceLoggingAspect - Metod bajarildi...
+17:55:16.177 INFO  c.e.a.c.a.DefaultServiceLoggingAspect - String com.example.academy.modules.user.service.AuthService.login(LoginRequest) metodi bajarilish vaqti: 103 ms
+17:55:16.177 INFO  c.e.a.c.a.DefaultControllerLoggingAspect - ✅ RESPONSE: AuthController.login() returned: <200 OK OK,eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJzdXBlcl9hZG1pbiIsImlhdCI6MTc0NDgwODExNiwiaXNzIjoiaHR0cDovL2xvY2FsaG9zdDo4MDgwIiwiZXhwIjoxNzQ0ODQ0MTE2fQ.61b-RTgESY0lEYkfhWLE40yxgheYs4fL7i-IpsYiqo8,[]> (103 ms)
+17:55:16.178 INFO  c.e.a.c.a.DefaultControllerLoggingAspect - ✅ RESPONSE: AuthController.login() returned: <200 OK OK,eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJzdXBlcl9hZG1pbiIsImlhdCI6MTc0NDgwODExNiwiaXNzIjoiaHR0cDovL2xvY2FsaG9zdDo4MDgwIiwiZXhwIjoxNzQ0ODQ0MTE2fQ.61b-RTgESY0lEYkfhWLE40yxgheYs4fL7i-IpsYiqo8,[]> (105 ms)
+18:06:32.328 INFO  c.example.academy.AcademyApplication - Starting AcademyApplication using Java 17.0.14 with PID 84227 (/Users/bobur/IdeaProjects/Academy/build/classes/java/main started by bobur in /Users/bobur/IdeaProjects/Academy)
+18:06:32.329 INFO  c.example.academy.AcademyApplication - The following 1 profile is active: "dev"
+18:06:33.502 WARN  org.hibernate.orm.deprecation - HHH90000025: PostgreSQLDialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
+18:06:34.621 WARN  o.s.b.a.o.j.JpaBaseConfiguration$JpaWebConfiguration - spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+18:06:35.480 INFO  c.example.academy.AcademyApplication - Started AcademyApplication in 3.299 seconds (process running for 3.529)
+18:06:49.618 WARN  c.e.a.c.c.security.JwtTokenFilter - Authorization sarlavhasi topilmadi yoki noto'g'ri format: null
+18:06:49.620 WARN  o.s.w.s.h.HandlerMappingIntrospector - Cache miss for REQUEST dispatch to '/api/v1/auth/login' (previous null). Performing MatchableHandlerMapping lookup. This is logged once only at WARN level, and every time at TRACE.
+18:06:49.671 INFO  c.e.a.c.a.DefaultControllerLoggingAspect - ➡️  REQUEST: AuthController.login() with arguments [LoginRequest(username=super_admin, password=super_1234)]
+18:06:49.671 INFO  c.e.a.c.a.DefaultControllerLoggingAspect - ➡️  REQUEST: AuthController.login() with arguments [LoginRequest(username=super_admin, password=super_1234)]
+18:06:49.768 INFO  c.e.a.c.a.DefaultServiceLoggingAspect - ✅ AuthService.login([LoginRequest(username=super_admin, password=super_1234)]) -> returned [eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJzdXBlcl9hZG1pbiIsImlhdCI6MTc0NDgwODgwOSwiaXNzIjoiaHR0cDovL2xvY2FsaG9zdDo4MDgwIiwiZXhwIjoxNzQ0ODQ0ODA5fQ.0Re_zqAh1tgqfbS88ZI5AYt6tEhIsRPFbRtdenYO7-Q] in 97 ms
+18:06:49.768 INFO  c.e.a.c.a.DefaultServiceLoggingAspect - ✅ AuthService.login([LoginRequest(username=super_admin, password=super_1234)]) -> returned [eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJzdXBlcl9hZG1pbiIsImlhdCI6MTc0NDgwODgwOSwiaXNzIjoiaHR0cDovL2xvY2FsaG9zdDo4MDgwIiwiZXhwIjoxNzQ0ODQ0ODA5fQ.0Re_zqAh1tgqfbS88ZI5AYt6tEhIsRPFbRtdenYO7-Q] in 97 ms
+18:06:49.769 INFO  c.e.a.c.a.DefaultControllerLoggingAspect - ✅ RESPONSE: AuthController.login() returned: <200 OK OK,eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJzdXBlcl9hZG1pbiIsImlhdCI6MTc0NDgwODgwOSwiaXNzIjoiaHR0cDovL2xvY2FsaG9zdDo4MDgwIiwiZXhwIjoxNzQ0ODQ0ODA5fQ.0Re_zqAh1tgqfbS88ZI5AYt6tEhIsRPFbRtdenYO7-Q,[]> (98 ms)
+18:06:49.770 INFO  c.e.a.c.a.DefaultControllerLoggingAspect - ✅ RESPONSE: AuthController.login() returned: <200 OK OK,eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJzdXBlcl9hZG1pbiIsImlhdCI6MTc0NDgwODgwOSwiaXNzIjoiaHR0cDovL2xvY2FsaG9zdDo4MDgwIiwiZXhwIjoxNzQ0ODQ0ODA5fQ.0Re_zqAh1tgqfbS88ZI5AYt6tEhIsRPFbRtdenYO7-Q,[]> (99 ms)

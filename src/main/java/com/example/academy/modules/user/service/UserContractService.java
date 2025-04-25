@@ -2,6 +2,7 @@ package com.example.academy.modules.user.service;
 
 import com.example.academy.core.domain.request.user.UserContractRequest;
 import com.example.academy.core.domain.response.user.UserContractResponse;
+import jakarta.transaction.Transactional;
 import org.springframework.stereotype.Service;
 
 import com.example.academy.modules.user.entity.UserContract;
@@ -20,8 +21,12 @@ public class UserContractService {
     private final UserContractRepository contractRepo;
     private final UserRepository userRepo;
 
+    @Transactional // 👈 aynan shu kerak
     public List<UserContractResponse> getAllByUserId(Long userId) {
-        return contractRepo.findByUserId(userId).stream()
+        var contracts = contractRepo.findByUserId(userId);
+        System.out.println("Contracts found: " + contracts.size());
+        contracts.forEach(c -> System.out.println("Contract ID: " + c.getId()));
+        return contracts.stream()
                 .map(this::toDto)
                 .collect(toList());
     }
