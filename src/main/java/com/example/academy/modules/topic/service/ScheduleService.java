@@ -1,7 +1,7 @@
 package com.example.academy.modules.topic.service;
 import com.example.academy.core.domain.mapper.attandance.ScheduleMapper;
-import com.example.academy.core.domain.request.topic.module.attandance.ScheduleRequest;
-import com.example.academy.core.domain.response.attandance.ScheduleResponse;
+import com.example.academy.core.domain.request.attendance.ScheduleRequest;
+import com.example.academy.core.domain.response.attendance.ScheduleResponse;
 import com.example.academy.modules.attendance.entity.ScheduleEntity;
 import com.example.academy.modules.attendance.repository.ScheduleRepository;
 import com.example.academy.modules.topic.entity.ModuleEntity;
@@ -37,7 +37,7 @@ public class ScheduleService {
         UserGroup group = userGroupRepository.findById(request.getGroupId())
                 .orElseThrow(() -> new RuntimeException("Group not found"));
 
-        ScheduleEntity schedule = ScheduleMapper.requestToEntity(request, group, module, teacher);
+        ScheduleEntity schedule = ScheduleMapper.requestToEntity(request);
         ScheduleEntity saved = scheduleRepository.save(schedule);
         return ScheduleMapper.entityToResponse(saved);
     }
@@ -70,13 +70,7 @@ public class ScheduleService {
         UserGroup group = userGroupRepository.findById(request.getGroupId())
                 .orElseThrow(() -> new RuntimeException("Group not found"));
 
-        schedule.setDayOfWeek(request.getDayOfWeek());
         schedule.setStartTime(request.getStartTime());
-        schedule.setEndTime(request.getEndTime());
-        schedule.setModule(module);
-        schedule.setGroup(group);
-        schedule.setTeacher(teacher);
-
         ScheduleEntity updated = scheduleRepository.save(schedule);
         return ScheduleMapper.entityToResponse(updated);
     }

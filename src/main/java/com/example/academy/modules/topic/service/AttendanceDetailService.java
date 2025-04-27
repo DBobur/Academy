@@ -1,7 +1,7 @@
 package com.example.academy.modules.topic.service;
-import com.example.academy.core.domain.mapper.attandance.AttendanceWithDetailMapper;
-import com.example.academy.core.domain.request.topic.module.attandance.AttendanceDetailRequest;
-import com.example.academy.core.domain.response.attandance.AttendanceWithDetailResponse;
+import com.example.academy.core.domain.mapper.attandance.AttendanceDetailMapper;
+import com.example.academy.core.domain.request.attendance.AttendanceDetailRequest;
+import com.example.academy.core.domain.response.attendance.AttendanceDetailResponse;
 import com.example.academy.modules.attendance.entity.AttendanceDetailEntity;
 import com.example.academy.modules.attendance.repository.AttendanceDetailEntityRepository;
 import com.example.academy.modules.user.entity.UserEntity;
@@ -21,29 +21,29 @@ public class AttendanceDetailService {
     private final UserEntityRepository userEntityRepository;
     private final AttendanceDetailEntityRepository attendanceDetailEntityRepository;
 
-    public AttendanceWithDetailResponse createAttendanceDetail(AttendanceDetailRequest request) {
+    public AttendanceDetailResponse createAttendanceDetail(AttendanceDetailRequest request) {
         UserEntity student = userEntityRepository.findById(request.getStudentId())
                 .orElseThrow(() -> new RuntimeException("Student not found"));
 
-        AttendanceDetailEntity entity = AttendanceWithDetailMapper.requestToEntity(request, student);
+        AttendanceDetailEntity entity = AttendanceDetailMapper.requestToEntity(request);
         AttendanceDetailEntity saved = attendanceDetailEntityRepository.save(entity);
-        return AttendanceWithDetailMapper.entityToResponse(saved);
+        return AttendanceDetailMapper.entityToResponse(saved);
     }
 
-    public List<AttendanceWithDetailResponse> getAllAttendanceDetails() {
+    public List<AttendanceDetailResponse> getAllAttendanceDetails() {
         return attendanceDetailEntityRepository.findAll()
                 .stream()
-                .map(AttendanceWithDetailMapper::entityToResponse)
+                .map(AttendanceDetailMapper::entityToResponse)
                 .collect(Collectors.toList());
     }
 
-    public AttendanceWithDetailResponse getAttendanceDetailById(Long id) {
+    public AttendanceDetailResponse getAttendanceDetailById(Long id) {
         AttendanceDetailEntity entity = attendanceDetailEntityRepository.findById(id)
                 .orElseThrow(() -> new RuntimeException("Attendance detail not found"));
-        return AttendanceWithDetailMapper.entityToResponse(entity);
+        return AttendanceDetailMapper.entityToResponse(entity);
     }
 
-    public AttendanceWithDetailResponse updateAttendanceDetail(Long id, AttendanceDetailRequest request) {
+    public AttendanceDetailResponse updateAttendanceDetail(Long id, AttendanceDetailRequest request) {
         AttendanceDetailEntity entity = attendanceDetailEntityRepository.findById(id)
                 .orElseThrow(() -> new RuntimeException("Attendance detail not found"));
 
@@ -52,10 +52,10 @@ public class AttendanceDetailService {
 
         entity.setDate(request.getDate());
         entity.setPresent(request.isPresent());
-        entity.setStudent(student);
+        entity.setAttendanceId(request.getAttendanceId());
 
         AttendanceDetailEntity updated = attendanceDetailEntityRepository.save(entity);
-        return AttendanceWithDetailMapper.entityToResponse(updated);
+        return AttendanceDetailMapper.entityToResponse(updated);
     }
 
     public void deleteAttendanceDetail(Long id) {

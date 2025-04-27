@@ -1,4 +1,4 @@
-package com.example.academy.core.domain.request.topic.module;
+package com.example.academy.core.domain.request.topic;
 
 import lombok.AllArgsConstructor;
 import lombok.Builder;

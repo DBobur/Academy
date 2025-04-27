@@ -1,12 +1,11 @@
 package com.example.academy.modules.topic.service;
 import com.example.academy.core.domain.mapper.module.LessonMapper;
-import com.example.academy.core.domain.request.topic.module.LessonRequest;
+import com.example.academy.core.domain.request.topic.LessonRequest;
 import com.example.academy.core.domain.response.module.LessonResponse;
 import com.example.academy.modules.topic.entity.LessonEntity;
 import com.example.academy.modules.topic.entity.ModuleEntity;
 import com.example.academy.modules.topic.repository.LessonEntityRepository;
 import com.example.academy.modules.topic.repository.ModuleEntityRepository;
-import com.example.academy.modules.topic.repository.TopicEntityRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 

@@ -1,10 +1,7 @@
 package com.example.academy.modules.topic.controller;
 
-import com.example.academy.core.domain.request.topic.module.attandance.AttendanceDetailRequest;
-import com.example.academy.core.domain.request.topic.module.attandance.AttendanceRequest;
-import com.example.academy.core.domain.response.attandance.AttendanceResponse;
-import com.example.academy.core.domain.response.attandance.AttendanceWithDetailResponse;
-import com.example.academy.modules.topic.service.AttendanceDetailService;
+import com.example.academy.core.domain.request.attendance.AttendanceRequest;
+import com.example.academy.core.domain.response.attendance.AttendanceResponse;
 import com.example.academy.modules.topic.service.AttendanceService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.ResponseEntity;

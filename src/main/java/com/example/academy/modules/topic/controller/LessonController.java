@@ -1,6 +1,6 @@
 package com.example.academy.modules.topic.controller;
 
-import com.example.academy.core.domain.request.topic.module.LessonRequest;
+import com.example.academy.core.domain.request.topic.LessonRequest;
 import com.example.academy.core.domain.response.module.LessonResponse;
 import com.example.academy.modules.topic.service.LessonService;
 import lombok.RequiredArgsConstructor;

@@ -1,6 +1,6 @@
 package com.example.academy.core.domain.mapper.module;
 
-import com.example.academy.core.domain.request.topic.module.LessonRequest;
+import com.example.academy.core.domain.request.topic.LessonRequest;
 import com.example.academy.core.domain.response.module.LessonResponse;
 import com.example.academy.modules.topic.entity.LessonEntity;
 import com.example.academy.modules.topic.entity.ModuleEntity;
