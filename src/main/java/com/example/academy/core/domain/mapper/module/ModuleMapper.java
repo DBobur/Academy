@@ -1,7 +1,7 @@
-package com.example.academy.core.domain.mapper;
+package com.example.academy.core.domain.mapper.module;
 
-import com.example.academy.core.domain.request.topic.module.ModuleRequest;
-import com.example.academy.core.domain.response.user.ModuleResponse;
+import com.example.academy.core.domain.request.topic.ModuleRequest;
+import com.example.academy.core.domain.response.module.ModuleResponse;
 import com.example.academy.modules.topic.entity.ModuleEntity;
 import com.example.academy.modules.topic.entity.TopicEntity;
 import com.example.academy.modules.topic.repository.TopicEntityRepository;
@@ -18,7 +18,7 @@ public class ModuleMapper {
         return ModuleEntity.builder()
                 .title(moduleRequest.getTitle())
                 .description(moduleRequest.getDescription())
-                .topic(topic)
+                .topicId(topic.getId())
                 .build();
     }
 
@@ -30,9 +30,7 @@ public class ModuleMapper {
                     .updatedDate(moduleEntity.getUpdatedTime())
                     .title(moduleEntity.getTitle())
                     .description(moduleEntity.getDescription())
-                    .topicId(moduleEntity.getTopic().getId())
-                    .topicName(moduleEntity.getTopic().getName())
-                    .lessons(moduleEntity.getLessons())
+                    .topicId(moduleEntity.getTopicId())
                     .build();
         }
 

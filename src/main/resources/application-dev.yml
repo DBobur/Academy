@@ -1,9 +1,4 @@
 
-
-jwt:
-  secret: ${JWT_SECRET}
-  expiration: 36000000
-
 spring:
   application:
     name: Academy
@@ -34,21 +29,21 @@ spring:
 
 server:
   port: 8080
-# http://178.218.201.17:7835
+
 
 oauth2:
   client:
     google:
       client-id: ${GOOGLE_CLIENT_ID}
       client-secret: ${GOOGLE_CLIENT_SECRET}
-      redirect-url-login: http://178.218.201.17:7835/api/v1/oauth2/callback-login/google
-      redirect-url-register: http://178.218.201.17:7835/api/v1/oauth2/callback-register/google
+      redirect-url-login: http://localhost:8080/api/v1/oauth2/callback-login/google
+      redirect-url-register: http://localhost:8080/api/v1/oauth2/callback-register/google
 
     facebook:
       client-id: ${FACEBOOK_CLIENT_ID}
       client-secret: ${FACEBOOK_CLIENT_SECRET}
-      redirect-url-login: http://178.218.201.17:7835/api/v1/oauth2/callback-login/facebook
-      redirect-url-register: http://178.218.201.17:7835/api/v1/oauth2/callback-register/facebook
+      redirect-url-login: http://localhost:8080/api/v1/oauth2/callback-login/facebook
+      redirect-url-register: http://localhost:8080/api/v1/oauth2/callback-register/facebook
 
 
 

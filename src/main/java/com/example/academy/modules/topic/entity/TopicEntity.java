@@ -20,6 +20,4 @@ import java.util.List;
 public class TopicEntity extends BaseEntity {
     private String name;
     private String description;
-    @OneToMany
-    private List<ModuleEntity> modules;
 }

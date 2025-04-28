@@ -1,7 +1,7 @@
 package com.example.academy.modules.topic.controller;
 
-import com.example.academy.core.domain.request.topic.module.ModuleRequest;
-import com.example.academy.core.domain.response.user.ModuleResponse;
+import com.example.academy.core.domain.request.topic.ModuleRequest;
+import com.example.academy.core.domain.response.module.ModuleResponse;
 import com.example.academy.modules.topic.service.ModuleService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.ResponseEntity;
@@ -18,7 +18,7 @@ public class ModuleController {
 
 
     @GetMapping
-    public ResponseEntity<List<ModuleResponse>> getAllModules() {
+    public ResponseEntity<?> getAllModules() {
         List<ModuleResponse> moduleResponses = moduleService.getAllModules();
         return ResponseEntity.ok(moduleResponses);
     }

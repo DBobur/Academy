@@ -1,4 +1,4 @@
-package com.example.academy.core.domain.request.topic.module;
+package com.example.academy.core.domain.request.topic;
 
 import lombok.AllArgsConstructor;
 import lombok.Builder;
@@ -9,8 +9,8 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 @AllArgsConstructor
 @Builder
-public class LessonRequest {
+public class ModuleRequest {
     private String title;
-    private String content;
-    private Long moduleId;
+    private String description;
+    private Long topicId;
 }

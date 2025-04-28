@@ -1,7 +1,7 @@
 package com.example.academy.modules.topic.service;
-import com.example.academy.core.domain.mapper.ModuleMapper;
-import com.example.academy.core.domain.request.topic.module.ModuleRequest;
-import com.example.academy.core.domain.response.user.ModuleResponse;
+import com.example.academy.core.domain.mapper.module.ModuleMapper;
+import com.example.academy.core.domain.request.topic.ModuleRequest;
+import com.example.academy.core.domain.response.module.ModuleResponse;
 
 import com.example.academy.modules.topic.entity.ModuleEntity;
 import com.example.academy.modules.topic.entity.TopicEntity;
@@ -28,7 +28,7 @@ public class ModuleService {
         ModuleEntity moduleEntity = ModuleEntity.builder()
                 .title(moduleRequest.getTitle())
                 .description(moduleRequest.getDescription())
-                .topic(topic)
+                .topicId(topic.getId())
                 .build();
 
         ModuleEntity savedModuleEntity = moduleEntityRepository.save(moduleEntity);
@@ -56,7 +56,7 @@ public class ModuleService {
 
         moduleEntity.setTitle(moduleRequest.getTitle());
         moduleEntity.setDescription(moduleRequest.getDescription());
-        moduleEntity.setTopic(topic);
+        moduleEntity.setTopicId(topic.getId());
         ModuleEntity updatedModuleEntity = moduleEntityRepository.save(moduleEntity);
 
         return ModuleMapper.entityToResponse(updatedModuleEntity);

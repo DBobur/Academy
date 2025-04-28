@@ -1,6 +1,6 @@
 package com.example.academy.modules.user.controller;
 
-import com.example.academy.core.domain.mapper.UserMapper;
+import com.example.academy.core.domain.mapper.user.UserMapper;
 import com.example.academy.core.domain.request.user.UserUpdateRequest;
 import com.example.academy.core.domain.response.user.UserResponse;
 import com.example.academy.core.domain.response.user.UserStatisticsResponse;
