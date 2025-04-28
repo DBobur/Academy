@@ -18,7 +18,7 @@ public class ModuleMapper {
         return ModuleEntity.builder()
                 .title(moduleRequest.getTitle())
                 .description(moduleRequest.getDescription())
-                .topic(topic)
+                .topicId(topic.getId())
                 .build();
     }
 
@@ -30,9 +30,7 @@ public class ModuleMapper {
                     .updatedDate(moduleEntity.getUpdatedTime())
                     .title(moduleEntity.getTitle())
                     .description(moduleEntity.getDescription())
-                    .topicId(moduleEntity.getTopic().getId())
-                    .topicName(moduleEntity.getTopic().getName())
-                    .lessons(moduleEntity.getLessons())
+                    .topicId(moduleEntity.getTopicId())
                     .build();
         }
 

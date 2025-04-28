@@ -37,8 +37,3 @@ spring:
         mail.smtp.starttls.enable: false
   banner:
     location: test-banner
-
-jwt:
-  secret: ${JWT_SECRET}
-  expiration: 36000000
-

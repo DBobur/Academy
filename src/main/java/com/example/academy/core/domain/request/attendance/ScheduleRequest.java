@@ -1,6 +1,5 @@
 package com.example.academy.core.domain.request.attendance;
 
-import lombok.Builder;
 import lombok.Data;
 
 import java.time.DayOfWeek;
@@ -9,7 +8,6 @@ import java.time.LocalTime;
 import java.util.Set;
 
 @Data
-@Builder
 public class ScheduleRequest {
     private LocalDate startDate;
     private LocalDate endDate;

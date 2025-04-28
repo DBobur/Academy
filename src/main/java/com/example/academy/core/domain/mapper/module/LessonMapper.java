@@ -16,7 +16,7 @@ public class LessonMapper {
         return LessonEntity.builder()
                 .title(lessonRequest.getTitle())
                 .content(lessonRequest.getContent())
-                .module(module)
+                .moduleId(module.getId())
                 .build();
     }
 
@@ -25,7 +25,7 @@ public class LessonMapper {
                 .id(lessonEntity.getId())
                 .title(lessonEntity.getTitle())
                 .content(lessonEntity.getContent())
-                .moduleId(lessonEntity.getModule().getId())
+                .moduleId(lessonEntity.getModuleId())
                 .createdDate(lessonEntity.getCreatedTime())
                 .updatedDate(lessonEntity.getUpdatedTime())
                 .build();

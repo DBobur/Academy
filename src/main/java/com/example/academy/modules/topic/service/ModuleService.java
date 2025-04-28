@@ -28,7 +28,7 @@ public class ModuleService {
         ModuleEntity moduleEntity = ModuleEntity.builder()
                 .title(moduleRequest.getTitle())
                 .description(moduleRequest.getDescription())
-                .topic(topic)
+                .topicId(topic.getId())
                 .build();
 
         ModuleEntity savedModuleEntity = moduleEntityRepository.save(moduleEntity);
@@ -56,7 +56,7 @@ public class ModuleService {
 
         moduleEntity.setTitle(moduleRequest.getTitle());
         moduleEntity.setDescription(moduleRequest.getDescription());
-        moduleEntity.setTopic(topic);
+        moduleEntity.setTopicId(topic.getId());
         ModuleEntity updatedModuleEntity = moduleEntityRepository.save(moduleEntity);
 
         return ModuleMapper.entityToResponse(updatedModuleEntity);

@@ -16,6 +16,6 @@ import lombok.*;
 @Setter
 @Builder
 public class ResourceEntity extends BaseEntity {
-    @ManyToOne
-    private LessonEntity lesson;
+    private Long lessonId;
+    private String content;
 }

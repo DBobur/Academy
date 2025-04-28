@@ -50,7 +50,7 @@ public class LessonService {
 
         lesson.setTitle(lessonRequest.getTitle());
         lesson.setContent(lessonRequest.getContent());
-        lesson.setModule(module);
+        lesson.setModuleId(module.getId());
 
         LessonEntity updatedLesson = lessonEntityRepository.save(lesson);
         return LessonMapper.entityToResponse(updatedLesson);
