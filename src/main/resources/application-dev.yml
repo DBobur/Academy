@@ -28,7 +28,7 @@ spring:
     location: dev-banner
 
 server:
-  port: ${SERVER_PORT}
+  port: 8080
 
 
 oauth2:
