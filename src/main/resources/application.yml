@@ -2,7 +2,9 @@
 
 spring:
   profiles:
-    active: test
+    active: dev
+  config:
+    import: optional:file:.env[.properties]
   mail:
     host: ${MAIL_HOST}
     port: ${MAIL_PORT}

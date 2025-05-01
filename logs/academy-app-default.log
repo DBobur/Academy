@@ -1563,3 +1563,19 @@ org.springframework.security.core.userdetails.UsernameNotFoundException: usernam
 08:10:47.541 INFO  c.e.a.c.a.DefaultServiceLoggingAspect - ✅ AuthService.login([LoginRequest(username=super_admin, password=super_1234)]) -> returned [eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJzdXBlcl9hZG1pbiIsImlhdCI6MTc0NTgwOTg0NywiaXNzIjoiaHR0cDovL2xvY2FsaG9zdDo4MDgwIiwiZXhwIjoxNzQ1ODQ1ODQ3fQ.8HTmpZ_cL1PD1mqWHJsqyl99zcVu9A_R5SRDVyAgZvA] in 135 ms
 08:10:47.541 INFO  c.e.a.c.a.DefaultControllerLoggingAspect - ✅ RESPONSE: AuthController.login() returned: <200 OK OK,eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJzdXBlcl9hZG1pbiIsImlhdCI6MTc0NTgwOTg0NywiaXNzIjoiaHR0cDovL2xvY2FsaG9zdDo4MDgwIiwiZXhwIjoxNzQ1ODQ1ODQ3fQ.8HTmpZ_cL1PD1mqWHJsqyl99zcVu9A_R5SRDVyAgZvA,[]> (135 ms)
 08:10:47.542 INFO  c.e.a.c.a.DefaultControllerLoggingAspect - ✅ RESPONSE: AuthController.login() returned: <200 OK OK,eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJzdXBlcl9hZG1pbiIsImlhdCI6MTc0NTgwOTg0NywiaXNzIjoiaHR0cDovL2xvY2FsaG9zdDo4MDgwIiwiZXhwIjoxNzQ1ODQ1ODQ3fQ.8HTmpZ_cL1PD1mqWHJsqyl99zcVu9A_R5SRDVyAgZvA,[]> (136 ms)
+11:22:48.308 INFO  c.example.academy.AcademyApplication - Starting AcademyApplication using Java 17.0.14 with PID 38073 (/Users/bobur/java/bobur/Academy/build/classes/java/main started by bobur in /Users/bobur/java/bobur/Academy)
+11:22:48.309 INFO  c.example.academy.AcademyApplication - The following 1 profile is active: "test"
+11:22:49.705 WARN  org.hibernate.orm.deprecation - HHH90000025: H2Dialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
+11:22:50.531 WARN  o.s.b.a.o.j.JpaBaseConfiguration$JpaWebConfiguration - spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+11:22:51.222 INFO  c.example.academy.AcademyApplication - Started AcademyApplication in 3.098 seconds (process running for 3.309)
+11:23:02.072 WARN  c.e.a.c.c.security.JwtTokenFilter - Authorization sarlavhasi topilmadi yoki noto'g'ri format: null
+11:23:02.074 WARN  o.s.w.s.h.HandlerMappingIntrospector - Cache miss for REQUEST dispatch to '/swagger-ui.html' (previous null). Performing MatchableHandlerMapping lookup. This is logged once only at WARN level, and every time at TRACE.
+11:23:02.099 WARN  c.e.a.c.c.security.JwtTokenFilter - Authorization sarlavhasi topilmadi yoki noto'g'ri format: null
+11:23:02.108 WARN  c.e.a.c.c.security.JwtTokenFilter - Authorization sarlavhasi topilmadi yoki noto'g'ri format: null
+11:23:02.108 WARN  c.e.a.c.c.security.JwtTokenFilter - Authorization sarlavhasi topilmadi yoki noto'g'ri format: null
+11:23:02.108 WARN  c.e.a.c.c.security.JwtTokenFilter - Authorization sarlavhasi topilmadi yoki noto'g'ri format: null
+11:23:02.113 WARN  c.e.a.c.c.security.JwtTokenFilter - Authorization sarlavhasi topilmadi yoki noto'g'ri format: null
+11:23:02.114 WARN  c.e.a.c.c.security.JwtTokenFilter - Authorization sarlavhasi topilmadi yoki noto'g'ri format: null
+11:23:02.175 WARN  c.e.a.c.c.security.JwtTokenFilter - Authorization sarlavhasi topilmadi yoki noto'g'ri format: null
+11:23:02.181 WARN  c.e.a.c.c.security.JwtTokenFilter - Authorization sarlavhasi topilmadi yoki noto'g'ri format: null
+11:25:32.821 WARN  o.s.b.f.s.DisposableBeanAdapter - Invocation of destroy method failed on bean with name 'inMemoryDatabaseShutdownExecutor': org.h2.jdbc.JdbcSQLNonTransientConnectionException: Database is already closed (to disable automatic closing at VM shutdown, add ";DB_CLOSE_ON_EXIT=FALSE" to the db URL) [90121-224]
