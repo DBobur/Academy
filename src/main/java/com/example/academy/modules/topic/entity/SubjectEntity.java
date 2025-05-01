@@ -17,7 +17,7 @@ import java.util.List;
 @Getter
 @Setter
 @Builder
-public class TopicEntity extends BaseEntity {
+public class SubjectEntity extends BaseEntity {
     private String name;
     private String description;
 }

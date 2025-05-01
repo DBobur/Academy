@@ -21,28 +21,33 @@ public class UserEntity extends BaseEntity {
 
     private String fullName;
 
+    // not null and unique
     @Column(nullable = false, unique = true)
     private String username;
 
+    // not null
     @Column(nullable = false)
     private String password;
 
+    // unique
     @Column(nullable = false, unique = true)
     private String email;
 
+    // unique
     @Pattern(regexp = "^\\+?[1-9]\\d{1,14}$", message = "Wrong Format!")
     @Column(unique = true)
     private String number;
+
 
     private String address;
 
     private LocalDate dateOfBirth;
 
-    @Column(nullable = false)
-    private boolean isDeleted = false;
+    private boolean isDeleted;
 
-    @OneToMany(mappedBy = "user", cascade = CascadeType.ALL, fetch = FetchType.EAGER)
-    private List<UserContract> contracts;
+    // cascade All and fetch Eager
+    @OneToOne(mappedBy = "user", cascade = CascadeType.ALL, fetch = FetchType.EAGER)
+    private UserContract contracts;
 
     @Enumerated(EnumType.STRING)
     private UserRole role;

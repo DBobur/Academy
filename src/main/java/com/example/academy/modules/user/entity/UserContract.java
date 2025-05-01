@@ -17,7 +17,7 @@ import java.time.LocalDate;
 @Builder
 public class UserContract extends BaseEntity {
 
-    @ManyToOne(fetch = FetchType.LAZY)
+    @OneToOne(fetch = FetchType.EAGER)
     private UserEntity user;
 
     @Enumerated(EnumType.STRING)

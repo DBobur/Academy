@@ -22,5 +22,8 @@ import java.util.List;
 public class LessonEntity extends BaseEntity {
     private String title;
     private String content;
-    private Long moduleId;
+    @ManyToOne
+    private ModuleEntity module;
+    @OneToMany
+    private List<ResourceEntity> resources;
 }

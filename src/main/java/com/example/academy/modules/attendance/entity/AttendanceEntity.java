@@ -19,9 +19,13 @@ import java.util.List;
 @Setter
 @Builder
 public class AttendanceEntity extends BaseEntity {
+    @ManyToOne(fetch = FetchType.LAZY)
+    private UserEntity user;
 
-    private Long teacherId;
+    @ManyToOne(fetch = FetchType.LAZY)
+    private LessonEntity lesson;
 
-    private Long scheduleId;
+    @OneToMany(fetch = FetchType.LAZY)
+    private List<AttendanceDetailEntity> attendanceDetails;
 }
 

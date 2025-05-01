@@ -18,9 +18,11 @@ import java.time.LocalDate;
 @Builder
 public class AttendanceDetailEntity extends BaseEntity {
 
-    private Long attendanceId;
+    @ManyToOne(fetch = FetchType.LAZY)
+    private AttendanceEntity attendance;
 
-    private Long studentId;
+    @ManyToOne(fetch = FetchType.LAZY)
+    private UserEntity student;
 
     private LocalDate date;
 
