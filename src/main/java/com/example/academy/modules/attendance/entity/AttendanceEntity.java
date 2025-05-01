@@ -19,14 +19,13 @@ import java.util.List;
 @Setter
 @Builder
 public class AttendanceEntity extends BaseEntity {
-    @ManyToOne
-    @JoinColumn(name = "user_id")
+    @ManyToOne(fetch = FetchType.LAZY)
     private UserEntity user;
 
-    @ManyToOne
+    @ManyToOne(fetch = FetchType.LAZY)
     private LessonEntity lesson;
 
-    @OneToMany
+    @OneToMany(fetch = FetchType.LAZY)
     private List<AttendanceDetailEntity> attendanceDetails;
 }
 

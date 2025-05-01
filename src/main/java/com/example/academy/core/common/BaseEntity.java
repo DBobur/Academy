@@ -12,7 +12,6 @@ import org.hibernate.annotations.UpdateTimestamp;
 import java.time.LocalDateTime;
 
 @MappedSuperclass
-@EqualsAndHashCode
 @Data
 public abstract class BaseEntity {
     @Id

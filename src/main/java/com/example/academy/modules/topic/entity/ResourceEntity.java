@@ -18,4 +18,5 @@ import lombok.*;
 public class ResourceEntity extends BaseEntity {
     @ManyToOne
     private LessonEntity lesson;
+    private String content;
 }

@@ -18,12 +18,10 @@ import java.util.List;
 public class QuestionEntity extends BaseEntity {
     private String questionText;
 
-    @ManyToOne
+    @ManyToOne(fetch = FetchType.EAGER)
     private TestEntity test;
 
-    @OneToMany
+    @OneToMany(cascade = CascadeType.ALL, fetch = FetchType.EAGER)
     private List<OptionEntity> options;
-
-    // Constructors, Getters, Setters
 }
 

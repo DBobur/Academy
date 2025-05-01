@@ -30,7 +30,6 @@ public class DataInitializer {
                         .address("Tashkent, Uzbekistan")
                         .dateOfBirth(LocalDate.of(2003, 3, 1))
                         .role(UserRole.SUPER)
-                        .isDeleted(false)
                         .build();
 
                 userRepository.save(superAdmin);

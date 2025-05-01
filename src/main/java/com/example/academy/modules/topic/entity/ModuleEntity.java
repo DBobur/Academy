@@ -22,7 +22,7 @@ public class ModuleEntity extends BaseEntity {
     private String title;
     private String description;
     @ManyToOne
-    private TopicEntity topic;
+    private SubjectEntity topic;
     @OneToMany
     private List<LessonEntity> lessons;
 

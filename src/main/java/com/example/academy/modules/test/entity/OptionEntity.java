@@ -1,10 +1,7 @@
 package com.example.academy.modules.test.entity;
 
 import com.example.academy.core.common.BaseEntity;
-import jakarta.persistence.Entity;
-import jakarta.persistence.JoinColumn;
-import jakarta.persistence.ManyToOne;
-import jakarta.persistence.Table;
+import jakarta.persistence.*;
 import lombok.*;
 
 @Entity
@@ -20,8 +17,7 @@ public class OptionEntity extends BaseEntity {
     private String optionText;
     private boolean isCorrect;
 
-    @ManyToOne
-    @JoinColumn(name = "question_id")
+    @ManyToOne(fetch = FetchType.EAGER)
     private QuestionEntity question;
 }
 

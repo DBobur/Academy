@@ -3,17 +3,14 @@ package com.example.academy.modules.attendance.entity;
 import com.example.academy.core.common.BaseEntity;
 import com.example.academy.modules.topic.entity.ModuleEntity;
 import com.example.academy.modules.user.entity.UserEntity;
-import com.example.academy.modules.user.entity.UserGroup;
-import jakarta.persistence.Entity;
-import jakarta.persistence.JoinColumn;
-import jakarta.persistence.ManyToOne;
-import jakarta.persistence.Table;
+import jakarta.persistence.*;
 import lombok.*;
 
 
 import java.time.DayOfWeek;
-import java.time.LocalDateTime;
+import java.time.LocalDate;
 import java.time.LocalTime;
+import java.util.Set;
 
 @Entity
 @Table(
@@ -26,17 +23,22 @@ import java.time.LocalTime;
 @Builder
 public class ScheduleEntity extends BaseEntity {
 
-    private DayOfWeek dayOfWeek;
+    @ElementCollection(targetClass = DayOfWeek.class)
+    @CollectionTable(name = "schedule_days", joinColumns = @JoinColumn(name = "schedule_id"))
+    @Column(name = "day_of_week")
+    @Enumerated(EnumType.STRING)
+    private Set<DayOfWeek> dayOfWeeks;
+    private LocalDate startedDate;
     private LocalTime startTime;
-    private LocalTime endTime;
 
-    @ManyToOne
-    private UserGroup group;
-
-    @ManyToOne
+    @ManyToOne(fetch = FetchType.LAZY)
     private ModuleEntity module;
 
-    @ManyToOne
+    @ManyToOne(fetch = FetchType.LAZY)
+    private GroupEntity group;
+
+    @ManyToOne(fetch = FetchType.LAZY)
     private UserEntity teacher;
+
 }
 

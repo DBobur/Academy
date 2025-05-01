@@ -19,15 +19,12 @@ import lombok.*;
 @Builder
 public class SubmissionEntity extends BaseEntity {
     @ManyToOne
-    @JoinColumn(name = "user_id")
     private UserEntity user;
 
     @ManyToOne
-    @JoinColumn(name = "question_id")
     private QuestionEntity question;
 
     @ManyToOne
-    @JoinColumn(name = "option_id")
     private OptionEntity selectedOption;
 
     private boolean isCorrect;

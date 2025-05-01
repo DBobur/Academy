@@ -26,6 +26,4 @@ public class LessonEntity extends BaseEntity {
     private ModuleEntity module;
     @OneToMany
     private List<ResourceEntity> resources;
-    @OneToMany
-    private List<AttendanceEntity> attendances;
 }

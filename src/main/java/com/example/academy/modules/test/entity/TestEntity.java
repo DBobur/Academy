@@ -1,10 +1,8 @@
 package com.example.academy.modules.test.entity;
 
 import com.example.academy.core.common.BaseEntity;
-import jakarta.persistence.CascadeType;
-import jakarta.persistence.Entity;
-import jakarta.persistence.OneToMany;
-import jakarta.persistence.Table;
+import com.example.academy.modules.user.entity.UserEntity;
+import jakarta.persistence.*;
 import lombok.*;
 
 import java.util.List;
@@ -21,7 +19,8 @@ import java.util.List;
 public class TestEntity extends BaseEntity {
     private String title;
 
-    private Long subject;
-    @OneToMany
+    private Long userId;
+
+    @OneToMany(cascade = CascadeType.ALL, fetch = FetchType.EAGER)
     private List<QuestionEntity> questions;
 }
