@@ -2,10 +2,7 @@ package com.example.academy.modules.test.entity;
 
 import com.example.academy.core.common.BaseEntity;
 import com.example.academy.modules.user.entity.UserEntity;
-import jakarta.persistence.Entity;
-import jakarta.persistence.JoinColumn;
-import jakarta.persistence.ManyToOne;
-import jakarta.persistence.Table;
+import jakarta.persistence.*;
 import lombok.*;
 
 @Entity
@@ -18,13 +15,13 @@ import lombok.*;
 @Setter
 @Builder
 public class SubmissionEntity extends BaseEntity {
-    @ManyToOne
+    @ManyToOne(fetch = FetchType.EAGER)
     private UserEntity user;
 
-    @ManyToOne
+    @ManyToOne(fetch = FetchType.EAGER)
     private QuestionEntity question;
 
-    @ManyToOne
+    @ManyToOne(fetch = FetchType.EAGER)
     private OptionEntity selectedOption;
 
     private boolean isCorrect;

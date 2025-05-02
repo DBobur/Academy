@@ -35,9 +35,9 @@ public class GroupEntity extends BaseEntity {
     @ManyToMany(fetch = FetchType.EAGER)
     private List<UserEntity> teachers;
 
-    @ManyToMany(fetch = FetchType.EAGER)
+    @ManyToMany(fetch = FetchType.LAZY)
     private List<UserEntity> users;
 
-    @OneToMany(cascade = CascadeType.ALL, fetch = FetchType.EAGER)
+    @OneToMany(cascade = CascadeType.ALL, fetch = FetchType.LAZY)
     private List<ScheduleEntity> schedules;
 }
