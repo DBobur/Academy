@@ -47,7 +47,7 @@ public class UserEntity extends BaseEntity {
 
     // cascade All and fetch Eager
     @OneToOne(mappedBy = "user", cascade = CascadeType.ALL, fetch = FetchType.EAGER)
-    private UserContract contracts;
+    private UserContract contract;
 
     @Enumerated(EnumType.STRING)
     private UserRole role;

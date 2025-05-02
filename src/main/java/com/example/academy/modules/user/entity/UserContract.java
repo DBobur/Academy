@@ -32,12 +32,5 @@ public class UserContract extends BaseEntity {
     @Enumerated(EnumType.STRING)
     private ContractStatus status;
 
-    @Lob
-    @Basic(fetch = FetchType.LAZY)
-    @Column(name = "contract_details")
     private String contractDetails;
-
-   /* @OneToMany(mappedBy = "contract", cascade = CascadeType.ALL, orphanRemoval = true)
-    private List<ContractDocument> documents;*/
-
 }
