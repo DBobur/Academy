@@ -2,7 +2,7 @@ package com.example.academy.modules.user.controller;
 
 import com.example.academy.modules.user.entity.dto.LoginDto;
 import com.example.academy.modules.user.entity.dto.UserDto;
-import com.example.academy.modules.user.service.UserService;
+import com.example.academy.modules.user.service.AuthService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -14,7 +14,7 @@ import org.springframework.web.bind.annotation.RestController;
 @RequestMapping("/api/v1/auth")
 @RequiredArgsConstructor
 public class AuthController {
-    private final UserService userService;
+    private final AuthService userService;
 
     @PostMapping("/login")
     public ResponseEntity<?> login(@RequestBody LoginDto loginDto) {

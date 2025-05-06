@@ -1,6 +1,5 @@
 package com.example.academy.modules.user.entity.dto;
 
-import com.example.academy.modules.user.entity.UserEntity;
 import com.example.academy.modules.user.enums.ContractStatus;
 import com.example.academy.modules.user.enums.ContractType;
 import lombok.Builder;

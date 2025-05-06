@@ -1,6 +1,7 @@
 package com.example.academy.modules.user.repository;
 
 import com.example.academy.modules.user.entity.UserEntity;
+import com.example.academy.modules.user.entity.dto.UserDto;
 import com.example.academy.modules.user.enums.UserRole;
 import org.hibernate.query.Page;
 import org.springframework.data.domain.Pageable;
@@ -15,12 +16,8 @@ import java.util.List;
 import java.util.Optional;
 
 public interface UserRepository extends JpaRepository<UserEntity, Long>, JpaSpecificationExecutor<UserEntity> {
-    Optional<UserEntity> findByIdAndIsDeleted(Long id, boolean isDeleted);
     Optional<UserEntity> findByUsername(String username);
-    Optional<UserEntity> findByEmailOrNumber(String email, String number);
     Optional<UserEntity> findByEmail(String email);
-
-    @Query("SELECT u.role, COUNT(u) FROM UserEntity u GROUP BY u.role")
-    List<Object[]> countUsersByRole();
+    Optional<UserEntity> getUserEntityById(Long id);
 
 }

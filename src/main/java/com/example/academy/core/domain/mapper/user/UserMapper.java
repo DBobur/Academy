@@ -8,7 +8,8 @@ public class UserMapper {
     public static UserDto toDtoWith(UserEntity user) {
         UserDto dto = toDto(user);
         dto.setContract(
-                UserContractMapper.toDto(user.getContract())
+                user.getContract() != null ?
+                UserContractMapper.toDto(user.getContract()):null
         );
         return dto;
     }
@@ -41,7 +42,8 @@ public class UserMapper {
     public static UserEntity toEntityWith(UserDto userDto) {
         UserEntity entity = toEntity(userDto);
         entity.setContract(
-                UserContractMapper.toEntity(userDto.getContract())
+                userDto.getContract() != null ?
+                UserContractMapper.toEntity(userDto.getContract()):null
         );
         return entity;
     }

@@ -15,6 +15,7 @@ public class UserContractMapper {
                 .status(userContract.getStatus())
                 .build();
     }
+
     public static UserContractDto toDtoWith(UserContract userContract) {
         UserContractDto dto = toDto(userContract);
         dto.setUser(
