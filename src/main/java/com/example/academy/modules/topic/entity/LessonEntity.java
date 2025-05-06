@@ -2,10 +2,7 @@ package com.example.academy.modules.topic.entity;
 
 import com.example.academy.core.common.BaseEntity;
 import com.example.academy.modules.attendance.entity.AttendanceEntity;
-import jakarta.persistence.Entity;
-import jakarta.persistence.ManyToOne;
-import jakarta.persistence.OneToMany;
-import jakarta.persistence.Table;
+import jakarta.persistence.*;
 import lombok.*;
 
 import java.util.List;
@@ -24,6 +21,6 @@ public class LessonEntity extends BaseEntity {
     private String content;
     @ManyToOne
     private ModuleEntity module;
-    @OneToMany
+    @OneToMany(cascade = CascadeType.ALL,fetch = FetchType.LAZY)
     private List<ResourceEntity> resources;
 }

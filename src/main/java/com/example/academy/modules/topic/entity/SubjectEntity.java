@@ -1,9 +1,7 @@
 package com.example.academy.modules.topic.entity;
 
 import com.example.academy.core.common.BaseEntity;
-import jakarta.persistence.Entity;
-import jakarta.persistence.OneToMany;
-import jakarta.persistence.Table;
+import jakarta.persistence.*;
 import lombok.*;
 
 import java.util.List;
@@ -20,4 +18,9 @@ import java.util.List;
 public class SubjectEntity extends BaseEntity {
     private String name;
     private String description;
+    @OneToMany(cascade = CascadeType.ALL, fetch = FetchType.LAZY)
+    private List<ModuleEntity> modules;
+
+
+
 }
