@@ -20,4 +20,7 @@ public class SubjectEntity extends BaseEntity {
     private String description;
     @OneToMany(cascade = CascadeType.ALL, fetch = FetchType.LAZY)
     private List<ModuleEntity> modules;
+
+
+
 }
