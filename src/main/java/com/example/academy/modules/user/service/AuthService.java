@@ -1,7 +1,7 @@
 package com.example.academy.modules.user.service;
 
 import com.example.academy.core.config.security.JwtTokenUtil;
-import com.example.academy.core.domain.mapper.user.UserMapper;
+import com.example.academy.modules.user.entity.mapper.UserMapper;
 import com.example.academy.core.domain.response.user.UserSuccessResponse;
 import com.example.academy.core.excaption.PasswordNotMatchesException;
 import com.example.academy.modules.user.entity.UserEntity;

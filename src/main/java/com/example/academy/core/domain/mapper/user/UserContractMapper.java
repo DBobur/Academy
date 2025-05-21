@@ -2,6 +2,7 @@ package com.example.academy.core.domain.mapper.user;
 
 import com.example.academy.modules.user.entity.UserContract;
 import com.example.academy.modules.user.entity.dto.UserContractDto;
+import com.example.academy.modules.user.entity.mapper.UserMapper;
 
 public class UserContractMapper {
     public static UserContractDto toDto(UserContract userContract) {

@@ -1,6 +1,6 @@
 package com.example.academy.modules.user.service;
 
-import com.example.academy.core.domain.mapper.user.UserMapper;
+import com.example.academy.modules.user.entity.mapper.UserMapper;
 import com.example.academy.core.excaption.ResourceNotFoundException;
 import com.example.academy.modules.user.entity.UserEntity;
 import com.example.academy.modules.user.entity.dto.UserDto;
@@ -28,17 +28,4 @@ public class UserService {
                 .map(UserMapper::toDto).collect(Collectors.toList());
     }
 
-
-    /*public UserDto getUserByUsername(String username) {
-        return UserMapper.toDtoWith(
-                userRepository.findByUsername(username).orElseThrow(
-                () -> new ResourceNotFoundException("user not found with this "+username)
-                )
-        );
-    }*/
-
-    /*public Object getUserByUsername(String usernameOrEmail) {
-
-
-    }*/
 }
