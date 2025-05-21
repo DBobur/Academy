@@ -22,6 +22,13 @@ public class UserService {
         return UserMapper.toDtoWith(userEntity);
     }
 
+    public UserDto getUserByUsername(String username) {
+        UserEntity userEntity = userRepository.findByUsername(username).orElseThrow(
+                () -> new ResourceNotFoundException("User with username " + username + " not found")
+        );
+        return UserMapper.toDtoWith(userEntity);
+    }
+
     public List<UserDto> getAllUsers() {
         return userRepository.findAll()
                 .stream()
