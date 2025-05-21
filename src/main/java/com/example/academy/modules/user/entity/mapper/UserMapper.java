@@ -1,5 +1,6 @@
-package com.example.academy.core.domain.mapper.user;
+package com.example.academy.modules.user.entity.mapper;
 
+import com.example.academy.core.domain.mapper.user.UserContractMapper;
 import com.example.academy.modules.user.entity.UserEntity;
 import com.example.academy.modules.user.entity.dto.UserDto;
 import com.example.academy.modules.user.enums.UserRole;
@@ -8,7 +9,8 @@ public class UserMapper {
     public static UserDto toDtoWith(UserEntity user) {
         UserDto dto = toDto(user);
         dto.setContract(
-                UserContractMapper.toDto(user.getContract())
+                user.getContract() != null ?
+                UserContractMapper.toDto(user.getContract()):null
         );
         return dto;
     }
@@ -16,6 +18,9 @@ public class UserMapper {
     public static UserDto toDto(UserEntity user) {
         return UserDto.builder()
                 .id(user.getId())
+                .createdTime(user.getCreatedTime())
+                .updatedTime(user.getUpdatedTime())
+                .number(user.getNumber())
                 .username(user.getUsername())
                 .fullName(user.getFullName())
                 .email(user.getEmail())
@@ -41,7 +46,8 @@ public class UserMapper {
     public static UserEntity toEntityWith(UserDto userDto) {
         UserEntity entity = toEntity(userDto);
         entity.setContract(
-                UserContractMapper.toEntity(userDto.getContract())
+                userDto.getContract() != null ?
+                UserContractMapper.toEntity(userDto.getContract()):null
         );
         return entity;
     }
